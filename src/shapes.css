@@ -1,0 +1,22 @@
+/* ===== 3D decorative shapes ===== */
+.s3d{position:absolute;pointer-events:none;aspect-ratio:1;z-index:0}
+.has3d{position:relative}
+.has3d > .wrap{position:relative;z-index:1}
+
+/* markets */
+.mk-jack{width:clamp(220px,30vw,470px);right:clamp(-60px,-2vw,0px);top:-2%}
+.mkbig .mkrow{position:relative;z-index:1}
+
+/* statement (light panel) */
+.paper{position:relative;overflow:hidden}
+.st-blob{width:clamp(240px,34vw,520px);right:clamp(-80px,-3vw,0px);top:50%;transform:translateY(-62%)}
+.paper .wrap{position:relative;z-index:1}
+@media(max-width:800px){.st-blob{opacity:.5;top:12%;transform:none}}
+
+/* closing link */
+.biglink{position:relative;overflow:hidden}
+.bl-jack{width:clamp(200px,26vw,420px);right:clamp(8px,6vw,120px);top:50%;transform:translateY(-62%)}
+.biglink .wrap{position:relative;z-index:1}
+.bl-a{position:relative}
+
+@media(max-width:800px){.mk-jack{width:46vw;opacity:.8;top:-6%}.bl-jack{width:44vw;opacity:.7}}

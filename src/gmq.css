@@ -1,0 +1,17 @@
+/* ===== giant moving line at the end of the home page ===== */
+.gmq{overflow:hidden;border-top:1px solid var(--line);padding:clamp(34px,6vw,90px) 0;background:#070806;margin-top:clamp(60px,9vw,130px)}
+.gmq-track{display:flex;width:max-content;white-space:nowrap;will-change:transform}
+.gmq-g{display:inline-flex;align-items:center;gap:clamp(22px,3.4vw,54px);padding-right:clamp(22px,3.4vw,54px);font-size:clamp(4.4rem,13vw,13.5rem);line-height:1}
+.gmq-sans{font-family:var(--sans);font-weight:300;letter-spacing:-.045em;color:#f3f4ef}
+.gmq-em{font-family:var(--serif);font-style:normal;color:var(--lime);letter-spacing:-.03em;padding-right:.04em}
+.gmq-star{font-style:normal;font-size:.36em;color:var(--lime);filter:drop-shadow(0 0 18px rgba(182,255,0,.6))}
+@media(prefers-reduced-motion:reduce){.gmq-track{transform:none!important}}
+
+/* ===== footer world clocks ===== */
+.clocks{display:grid;grid-template-columns:repeat(6,auto);justify-content:start;gap:clamp(18px,3.4vw,56px);padding-bottom:36px;margin-bottom:44px;border-bottom:1px solid var(--line)}
+.clock{display:grid;gap:6px}
+.clock small{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.clock b{font-family:var(--mono);font-weight:500;font-size:clamp(1.1rem,1.6vw,1.5rem);letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.clock b i{font-style:normal;color:var(--lime);transition:opacity .3s}.clock b i.off{opacity:.15}
+@media(max-width:900px){.clocks{grid-template-columns:repeat(3,auto)}}
+@media(max-width:480px){.clocks{grid-template-columns:repeat(2,auto)}}
