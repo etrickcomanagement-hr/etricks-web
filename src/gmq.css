@@ -12,6 +12,6 @@
 .clock{display:grid;gap:6px}
 .clock small{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
 .clock b{font-family:var(--mono);font-weight:500;font-size:clamp(1.1rem,1.6vw,1.5rem);letter-spacing:.06em;font-variant-numeric:tabular-nums}
-.clock b i{font-style:normal;color:var(--lime);transition:opacity .3s}.clock b i.off{opacity:.15}
+.clock b i{font-style:normal;color:var(--lime);animation:blinkc 1s steps(1) infinite}@keyframes blinkc{50%{opacity:.15}}
 @media(max-width:900px){.clocks{grid-template-columns:repeat(3,auto)}}
 @media(max-width:480px){.clocks{grid-template-columns:repeat(2,auto)}}

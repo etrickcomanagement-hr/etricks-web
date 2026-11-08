@@ -1,26 +1,36 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Lenis from 'lenis'
-import { motion, useScroll, AnimatePresence } from 'framer-motion'
+import { m as motion, useScroll, AnimatePresence, LazyMotion } from 'framer-motion'
 import { NavLink, Link, Magnetic, Curtain } from './ui.jsx'
-import { Home, About, ServicesPage, TeamPage, ContactPage } from './pages.jsx'
-import { TalkPage } from './talk.jsx'
-import { ManagementPage } from './management.jsx'
 import { CONTACT } from './data.js'
+
+// Each page is its own chunk, so the first visit only downloads what it needs.
+const importHome = () => import('./pages.jsx')
+const importInner = () => import('./pages-inner.jsx')
+const importTalk = () => import('./talk.jsx')
+const importManagement = () => import('./management.jsx')
+const Home = lazy(() => importHome().then((m) => ({ default: m.Home })))
+const About = lazy(() => importInner().then((m) => ({ default: m.About })))
+const ServicesPage = lazy(() => importInner().then((m) => ({ default: m.ServicesPage })))
+const TeamPage = lazy(() => importInner().then((m) => ({ default: m.TeamPage })))
+const ContactPage = lazy(() => importInner().then((m) => ({ default: m.ContactPage })))
+const TalkPage = lazy(() => importTalk().then((m) => ({ default: m.TalkPage })))
+const ManagementPage = lazy(() => importManagement().then((m) => ({ default: m.ManagementPage })))
 
 const NAV = [['/', 'Home'], ['/services', 'Services'], ['/management', 'Management'], ['/about', 'About'], ['/team', 'Team'], ['/talk', 'Book a call'], ['/contact', 'Contact']]
 
 function Nav() {
   const [sc, setSc] = useState(false), [open, setOpen] = useState(false)
   const { pathname } = useLocation()
-  useEffect(() => { const f = () => setSc(window.scrollY > 40); f(); window.addEventListener('scroll', f); return () => window.removeEventListener('scroll', f) }, [])
+  useEffect(() => { const f = () => setSc(window.scrollY > 40); f(); window.addEventListener('scroll', f, { passive: true }); return () => window.removeEventListener('scroll', f) }, [])
   useEffect(() => setOpen(false), [pathname])
   useEffect(() => { window.__lenis && (open ? window.__lenis.stop() : window.__lenis.start()) }, [open])
   return (
     <>
       <header className={'nav ' + (sc ? 'scrolled' : '')}>
         <button className="pillb" onClick={() => setOpen(!open)} aria-expanded={open}>{open ? 'Close' : 'Menu'}</button>
-        <Link to="/" className="brand" aria-label="eTricks home"><img src="/logo.png" alt="eTricks" /></Link>
+        <Link to="/" className="brand" aria-label="eTricks home"><img src="/logo.webp" alt="eTricks" width="45" height="46" fetchpriority="high" decoding="async" /></Link>
         <Link to="/talk" className="pillb lime">Book a call <span>↗</span></Link>
       </header>
       <AnimatePresence>
@@ -49,7 +59,7 @@ const CLOCKS = [['Multan · PK', 'Asia/Karachi'], ['London', 'Europe/London'], [
 
 function WorldClocks() {
   const [now, setNow] = useState(() => new Date())
-  useEffect(() => { const t = setInterval(() => setNow(new Date()), 1000); return () => clearInterval(t) }, [])
+  useEffect(() => { const t = setInterval(() => setNow(new Date()), 10000); return () => clearInterval(t) }, [])
   const fmt = (tz) => {
     try { return new Intl.DateTimeFormat('en-GB', { timeZone: tz, hour: '2-digit', minute: '2-digit', hour12: false }).format(now) } catch { return '--:--' }
   }
@@ -60,7 +70,7 @@ function WorldClocks() {
         return (
           <div className="clock" key={tz}>
             <small>{n}</small>
-            <b>{h}<i className={now.getSeconds() % 2 ? 'off' : ''}>:</i>{m}</b>
+            <b>{h}<i>:</i>{m}</b>
           </div>
         )
       })}
@@ -73,7 +83,7 @@ function Footer() {
     <footer className="foot"><div className="wrap">
       <WorldClocks />
       <div className="fgrid">
-        <div><img src="/logo.png" alt="eTricks" style={{ height: 64, marginBottom: 18 }} /><p style={{ maxWidth: '34ch' }}>Based in Pakistan. Built for global eCommerce. We launch, scale and fix online stores.</p></div>
+        <div><img src="/logo.webp" alt="eTricks" width="62" height="64" loading="lazy" decoding="async" style={{ height: 64, width: "auto", marginBottom: 18 }} /><p style={{ maxWidth: '34ch' }}>Based in Pakistan. Built for global eCommerce. We launch, scale and fix online stores.</p></div>
         <div><h5>Menu</h5>{NAV.map(([to, l]) => <Link key={to} to={to}>{l}</Link>)}</div>
         <div><h5>Services</h5><Link to="/services">E-Commerce Management</Link><Link to="/services">Account Recovery</Link><Link to="/services">Company Formation</Link><Link to="/services">Web Development</Link></div>
         <div><h5>Contact</h5><a href={'mailto:' + CONTACT.email}>{CONTACT.email}</a><a href={'https://wa.me/' + CONTACT.whatsapp}>{CONTACT.phone}</a><p>{CONTACT.city}</p>
@@ -86,12 +96,26 @@ function Footer() {
 }
 
 function Cursor() {
-  const [p, setP] = useState({ x: -50, y: -50 }), [big, setBig] = useState(false)
+  const el = useRef(null)
   useEffect(() => {
-    const m = (e) => { setP({ x: e.clientX, y: e.clientY }); setBig(!!e.target.closest('a,button,.row,.trow,input,textarea')) }
-    window.addEventListener('mousemove', m); return () => window.removeEventListener('mousemove', m)
+    if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return
+    const pos = { x: -50, y: -50 }, tgt = { x: -50, y: -50 }
+    let raf = 0, big = false
+    const frame = () => {
+      pos.x += (tgt.x - pos.x) * 0.5; pos.y += (tgt.y - pos.y) * 0.5
+      el.current.style.transform = `translate3d(${pos.x - 7}px,${pos.y - 7}px,0)`
+      raf = requestAnimationFrame(frame)
+    }
+    const m = (e) => {
+      tgt.x = e.clientX; tgt.y = e.clientY
+      const b = !!e.target.closest('a,button,.row,.trow,input,textarea')
+      if (b !== big) { big = b; el.current.classList.toggle('big', b) }
+    }
+    window.addEventListener('mousemove', m, { passive: true })
+    raf = requestAnimationFrame(frame)
+    return () => { cancelAnimationFrame(raf); window.removeEventListener('mousemove', m) }
   }, [])
-  return <div className={'cursor ' + (big ? 'big' : '')} style={{ transform: `translate(${p.x - 7}px,${p.y - 7}px)` }} />
+  return <div ref={el} className="cursor" />
 }
 
 function Layout() {
@@ -105,19 +129,24 @@ function Layout() {
     return () => { cancelAnimationFrame(id); l.destroy() }
   }, [])
   useEffect(() => { window.__lenis ? window.__lenis.scrollTo(0, { immediate: true }) : window.scrollTo(0, 0) }, [pathname])
+  useEffect(() => {
+    const idle = window.requestIdleCallback || ((f) => setTimeout(f, 1500))
+    const id = idle(() => { importInner(); importTalk(); importManagement() })
+    return () => (window.cancelIdleCallback || clearTimeout)(id)
+  }, [])
   return (
     <>
       <motion.div className="progress" style={{ scaleX: scrollYProgress }} />
       <Cursor /><Nav />
       {pathname !== first.current && <Curtain id={pathname} />}
-      <AnimatePresence mode="wait">
-        <motion.main key={pathname} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .35 }}>
+      <motion.main key={pathname} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .3, delay: .12 }}>
+        <Suspense fallback={<div style={{ minHeight: '100svh' }} />}>
           <Routes location={{ pathname }}>
             <Route path="/" element={<Home />} /><Route path="/about" element={<About />} /><Route path="/services" element={<ServicesPage />} />
             <Route path="/team" element={<TeamPage />} /><Route path="/talk" element={<TalkPage />} /><Route path="/management" element={<ManagementPage />} /><Route path="/contact" element={<ContactPage />} /><Route path="*" element={<Home />} />
           </Routes>
-        </motion.main>
-      </AnimatePresence>
+        </Suspense>
+      </motion.main>
       <Footer />
       <a className="wa" href={'https://wa.me/' + CONTACT.whatsapp} target="_blank" rel="noreferrer" aria-label="WhatsApp">WA</a>
     </>
@@ -125,17 +154,22 @@ function Layout() {
 }
 
 export default function App() {
-  const [loading, setLoading] = useState(true)
-  useEffect(() => { const t = setTimeout(() => setLoading(false), 1700); return () => clearTimeout(t) }, [])
+  const [loading, setLoading] = useState(() => { try { return !sessionStorage.getItem('et-seen') } catch { return true } })
+  useEffect(() => {
+    if (!loading) return
+    try { sessionStorage.setItem('et-seen', '1') } catch { /* private mode */ }
+    const t = setTimeout(() => setLoading(false), 750)
+    return () => clearTimeout(t)
+  }, [loading])
   return (
-    <BrowserRouter>
+    <BrowserRouter><LazyMotion features={() => import('./motionFeatures.js').then((r) => r.default)}>
       <AnimatePresence>{loading && (
-        <motion.div className="pre" exit={{ y: '-100%' }} transition={{ duration: .9, ease: [.76, 0, .24, 1] }}>
-          <motion.span className="pre-w" initial={{ opacity: 0, letterSpacing: '.1em' }} animate={{ opacity: 1, letterSpacing: '.7em' }} transition={{ duration: 1.5, ease: [.16, 1, .3, 1] }}>ETRICKS</motion.span>
-          <motion.div className="pre-bar" initial={{ width: 0 }} animate={{ width: '100%' }} transition={{ duration: 1.6, ease: 'easeInOut' }} />
+        <motion.div className="pre" exit={{ y: '-100%' }} transition={{ duration: .6, ease: [.76, 0, .24, 1] }}>
+          <motion.span className="pre-w" initial={{ opacity: 0, letterSpacing: '.1em' }} animate={{ opacity: 1, letterSpacing: '.6em' }} transition={{ duration: .7, ease: [.16, 1, .3, 1] }}>ETRICKS</motion.span>
+          <motion.div className="pre-bar" initial={{ width: 0 }} animate={{ width: '100%' }} transition={{ duration: .7, ease: 'easeInOut' }} />
         </motion.div>
       )}</AnimatePresence>
       <Layout />
-    </BrowserRouter>
+    </LazyMotion></BrowserRouter>
   )
 }

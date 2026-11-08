@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react'
-import { motion, useInView, useMotionValue, useSpring, animate, useScroll, useTransform } from 'framer-motion'
+import { m as motion, useInView, useMotionValue, useSpring, animate, useScroll, useTransform } from 'framer-motion'
 import { Link, NavLink } from 'react-router-dom'
 import Shape3D from './Shape3DLazy.jsx'
 
@@ -86,8 +86,8 @@ export function Silhouette() {
 
 export function Curtain({ id }) {
   return (
-    <motion.div key={id} className="curtain" initial={{ y: '0%' }} animate={{ y: '-101%' }} transition={{ duration: .9, ease: [.76, 0, .24, 1], delay: .05 }}>
-      <img src="/logo.png" alt="" />
+    <motion.div key={id} className="curtain" initial={{ y: '0%' }} animate={{ y: '-101%' }} transition={{ duration: .55, ease: [.76, 0, .24, 1] }}>
+      <img src="/logo.webp" alt="" />
     </motion.div>
   )
 }

@@ -1,5 +1,5 @@
 import { lazy, Suspense, useState } from 'react'
-import { motion } from 'framer-motion'
+import { m as motion } from 'framer-motion'
 import { Link, Words, Reveal, ease } from './ui.jsx'
 import { UKFlag, USFlag, AUFlag, CAFlag, SAFlag } from './showcase.jsx'
 

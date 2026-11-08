@@ -232,9 +232,9 @@ textarea{min-height:130px;resize:vertical}
 .pre-bar{position:absolute;bottom:0;left:0;height:2px;background:var(--lime)}
 .curtain{position:fixed;inset:0;z-index:500;background:var(--lime);display:grid;place-items:center;pointer-events:none}
 .curtain img{width:90px;filter:brightness(0)}
-.cursor{position:fixed;left:0;top:0;width:14px;height:14px;border-radius:50%;background:var(--lime);pointer-events:none;z-index:2000;mix-blend-mode:difference;transition:width .25s,height .25s,margin .25s;display:none}
+.cursor{position:fixed;left:0;top:0;width:14px;height:14px;border-radius:50%;background:rgba(182,255,0,.92);pointer-events:none;z-index:2000;transition:width .25s,height .25s,margin .25s,opacity .25s;display:none;will-change:transform}
 @media(hover:hover) and (pointer:fine){.cursor{display:block}}
-.cursor.big{width:60px;height:60px;margin:-23px 0 0 -23px}
+.cursor.big{width:56px;height:56px;margin:-21px 0 0 -21px;opacity:.45}
 .progress{position:fixed;top:0;left:0;right:0;height:2px;background:var(--lime);transform-origin:0;z-index:400}
 .wa{position:fixed;right:20px;bottom:20px;z-index:200;width:54px;height:54px;border-radius:50%;background:var(--lime);color:#000;display:grid;place-items:center;box-shadow:0 10px 40px rgba(182,255,0,.35);transition:.3s;font-weight:700;font-size:.85rem}
 .wa:hover{transform:scale(1.1) rotate(-8deg)}

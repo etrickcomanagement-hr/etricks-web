@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m as motion, AnimatePresence } from 'framer-motion'
 import { PLATFORMS } from './data.js'
 
 /* Simple wordmark-style marks for the platforms we work with (names shown in each brand's colours). */

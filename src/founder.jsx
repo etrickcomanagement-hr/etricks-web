@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { m as motion, useScroll, useTransform } from 'framer-motion'
 import { Reveal, Words, Magnetic, Link, ease } from './ui.jsx'
 import { FOUNDER } from './data.js'
 

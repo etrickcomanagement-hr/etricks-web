@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m as motion, AnimatePresence } from 'framer-motion'
 import { Link, Words, Reveal, Magnetic, ease } from './ui.jsx'
 import { PlatformLogo } from './logos.jsx'
 import { Faq } from './sections.jsx'

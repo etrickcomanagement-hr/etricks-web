@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { m as motion, useScroll, useTransform } from 'framer-motion'
 import { Link, Words, ease } from './ui.jsx'
 import Shape3D from './Shape3DLazy.jsx'
 
@@ -85,7 +85,7 @@ function Photo({ src, alt, className, from = 0, speed = 40, delay = 0 }) {
       initial={{ clipPath: 'inset(100% 0 0 0 round 30px)', opacity: 0 }}
       whileInView={{ clipPath: 'inset(0% 0 0 0 round 30px)', opacity: 1 }}
       viewport={{ once: true, margin: '-80px' }} transition={{ duration: 1.3, delay, ease: [.76, 0, .24, 1] }}>
-      <motion.img src={src} alt={alt} style={{ y }} initial={{ scale: 1.25 }} whileInView={{ scale: 1.08 }} viewport={{ once: true }} transition={{ duration: 1.8, delay, ease }} />
+      <motion.img src={src} alt={alt} loading="lazy" decoding="async" style={{ y }} initial={{ scale: 1.25 }} whileInView={{ scale: 1.08 }} viewport={{ once: true }} transition={{ duration: 1.8, delay, ease }} />
     </motion.div>
   )
 }
@@ -101,11 +101,11 @@ export function MarketsShowcase() {
             <motion.path d="M-30 600 C 60 560 150 520 230 420 C 270 370 290 330 300 280" fill="none" stroke="#b6ff00" strokeWidth="52" strokeLinecap="round"
               initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 1.8, ease: [.76, 0, .24, 1] }} />
           </svg>
-          <Photo src="/about-a.jpg" alt="Colleagues working together in a bright office" className="sc-a" speed={36} />
-          <Photo src="/about-b.jpg" alt="A team gathered around a laptop, smiling" className="sc-b" speed={-28} delay={.25} />
+          <Photo src="/about-a.webp" alt="Colleagues working together in a bright office" className="sc-a" speed={36} />
+          <Photo src="/about-b.webp" alt="A team gathered around a laptop, smiling" className="sc-b" speed={-28} delay={.25} />
           <motion.div className="sc-badge" initial={{ scale: 0, rotate: -90 }} whileInView={{ scale: 1, rotate: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ type: 'spring', stiffness: 160, damping: 14, delay: .9 }}>
             <span className="sc-ring" />
-            <span className="sc-disc"><img src="/logo.png" alt="eTricks" /></span>
+            <span className="sc-disc"><img src="/logo.webp" alt="eTricks" /></span>
           </motion.div>
         </div>
 

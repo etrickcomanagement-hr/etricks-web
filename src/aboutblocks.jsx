@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion'
+import { m as motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion'
 import { Reveal, Words } from './ui.jsx'
 import { OFFICE, PILLARS, WORK_STEPS } from './data.js'
 
@@ -13,7 +13,7 @@ export function OfficeBand() {
       <Reveal>
         <div className="obx" ref={ref}>
           <motion.div className="obx-bg" style={{ y }}>
-            {OFFICE.img ? <img src={OFFICE.img} alt={'The eTricks office in ' + OFFICE.city} /> : <div className="obx-art" aria-hidden="true" />}
+            {OFFICE.img ? <img decoding="async" src={OFFICE.img} alt={'The eTricks office in ' + OFFICE.city} /> : <div className="obx-art" aria-hidden="true" />}
           </motion.div>
           <div className="obx-shade" />
           {!OFFICE.img && <div className="obx-pin" aria-hidden="true"><i /><i /><i /><b /></div>}

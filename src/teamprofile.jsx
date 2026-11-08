@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m as motion, AnimatePresence } from 'framer-motion'
 import { Reveal, Link, ease } from './ui.jsx'
 import { TEAM, CONTACT } from './data.js'
 

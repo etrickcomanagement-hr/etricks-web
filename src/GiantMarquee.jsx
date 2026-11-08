@@ -1,5 +1,5 @@
-import { useRef } from 'react'
-import { motion, useAnimationFrame, useMotionValue, useScroll, useSpring, useVelocity } from 'framer-motion'
+import { useRef, useState, useEffect } from 'react'
+import { m as motion, useAnimationFrame, useMotionValue, useScroll, useSpring, useVelocity } from 'framer-motion'
 
 const PHRASE = [
   ['sans', 'We launch,'], ['em', 'scale'], ['star'], ['sans', '& fix'], ['em', 'every store'], ['star'],
@@ -21,12 +21,17 @@ export default function GiantMarquee() {
   const x = useMotionValue(0)
   const ref = useRef(null)
   const dir = useRef(1)
+  const on = useRef(false)
+  useEffect(() => {
+    const io = new IntersectionObserver(([e]) => { on.current = e.isIntersecting }, { rootMargin: '200px' })
+    io.observe(ref.current); return () => io.disconnect()
+  }, [])
   const { scrollY } = useScroll()
   const vel = useSpring(useVelocity(scrollY), { damping: 50, stiffness: 400 })
 
   useAnimationFrame((_, dt) => {
     const el = ref.current
-    if (!el) return
+    if (!el || !on.current) return
     const w = el.scrollWidth / 2
     if (!w) return
     const v = vel.get()

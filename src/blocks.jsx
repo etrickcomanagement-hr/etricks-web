@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion'
+import { m as motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion'
 import { Reveal, Words, Magnetic, Link, Silhouette, Counter, ScrubText, ease } from './ui.jsx'
 import { SERVICES, STEPS, MARKETS, TEAM, PROMISES, PLATFORMS, PLATFORM_DETAIL } from './data.js'
 import Shape3D from './Shape3DLazy.jsx'
@@ -169,7 +169,7 @@ export function TeamHover({ limit }) {
       <AnimatePresence>
         {hov !== null && (
           <motion.div className="tcard" style={{ x: sx, y: sy }} initial={{ opacity: 0, scale: .8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: .8 }} transition={{ duration: .25 }}>
-            <div className="tc-pic">{list[hov].img ? <img src={list[hov].img} alt={list[hov].n} /> : <Silhouette />}</div><b>{list[hov].n}</b><span>{list[hov].r}</span>
+            <div className="tc-pic">{list[hov].img ? <img src={list[hov].img} alt={list[hov].n} decoding="async" /> : <Silhouette />}</div><b>{list[hov].n}</b><span>{list[hov].r}</span>
           </motion.div>
         )}
       </AnimatePresence>

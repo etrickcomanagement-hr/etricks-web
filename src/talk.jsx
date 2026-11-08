@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m as motion, AnimatePresence } from 'framer-motion'
 import { Words, Reveal, Magnetic, ease } from './ui.jsx'
 import { CONTACT, BOOKING } from './data.js'
 

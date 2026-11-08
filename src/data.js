@@ -18,8 +18,8 @@ export const BOOKING = {
   tz: 'Pakistan time (PKT)',
 }
 
-// About page. Put an office photo in /public and set OFFICE.img = '/office.jpg' to replace the artwork.
-export const OFFICE = { img: '/office.jpg', city: 'Multan, Pakistan', coords: '30.1575° N · 71.5249° E' }
+// About page. Put an office photo in /public and set OFFICE.img = '/office.webp' to replace the artwork.
+export const OFFICE = { img: '/office.webp', city: 'Multan, Pakistan', coords: '30.1575° N · 71.5249° E' }
 
 export const PILLARS = [
   ['Dedicated store teams', 'People assigned to your store by name, who learn your catalogue and stay.'],
@@ -112,7 +112,7 @@ export const PROMISES = [
 export const FOUNDER = {
   name: 'Shah Mohsin', // TODO: confirm spelling
   role: 'Founder & CEO',
-  img: '/ceo.jpg',
+  img: '/ceo.webp',
   quote: 'I started eTricks because I wanted store owners to know who is working on their business, what has been done and where we need their input.',
   principles: [
     ['Know who is working on your business', 'Every client should be able to name the people behind their store, and reach them.'],
@@ -127,7 +127,7 @@ export const TEAM = [
   // dept = the section they belong to.
   // summary / about / handles / focus / talkAbout are written from each person's role. Edit freely.
   // facts is optional: add real details like [['Experience', '6 years'], ['Platforms', 'Amazon, eBay']] and they appear in the profile.
-  { n: 'Shah Mohsin', r: 'Founder & CEO', dept: 'Leadership', img: '/team-mohsin.jpg', facts: [],
+  { n: 'Shah Mohsin', r: 'Founder & CEO', dept: 'Leadership', img: '/team-mohsin.webp', facts: [],
     summary: 'Sets the direction and keeps every client relationship personal.',
     about: 'Shah Mohsin founded eTricks so store owners would always know who is working on their business, what has been done and where their input is needed. He sets the direction of the company, keeps the standard high across every department and stays close to client relationships as the agency grows from Multan to markets worldwide.',
     handles: [
@@ -139,7 +139,7 @@ export const TEAM = [
     focus: ['Strategy', 'Client relationships', 'Growth', 'Culture'],
     talkAbout: ['Long-term plans and partnerships', 'Anything you want escalated', 'Feedback on how we work'] },
 
-  { n: 'Syed Shahraz', r: 'Operations Manager', dept: 'Operations', img: '/team-shahraz.jpg', facts: [],
+  { n: 'Syed Shahraz', r: 'Operations Manager', dept: 'Operations', img: '/team-shahraz.webp', facts: [],
     summary: 'Keeps the daily work moving across every department.',
     about: 'Syed Shahraz looks after how the work gets done day to day. He coordinates the department teams, keeps tasks moving and makes sure every project has an owner, so clients get steady attention and clear updates.',
     handles: [
@@ -151,7 +151,7 @@ export const TEAM = [
     focus: ['Operations', 'Coordination', 'Quality', 'Delivery'],
     talkAbout: ['Timelines and progress', 'Who is handling which task', 'Process and workflow improvements'] },
 
-  { n: 'Talha Syed', r: 'Head of E-Commerce Operations', dept: 'E-Commerce', img: '/team-talha.jpg', facts: [],
+  { n: 'Talha Syed', r: 'Head of E-Commerce Operations', dept: 'E-Commerce', img: '/team-talha.webp', facts: [],
     summary: 'Leads the teams that run client stores across the marketplaces.',
     about: 'Talha Syed leads eTricks e-commerce operations. His teams manage client stores across Amazon, eBay, TikTok Shop, Etsy, Walmart, Shopify and Temu: listings, orders, stock and account health, so owners can focus on the business.',
     handles: [
@@ -163,7 +163,7 @@ export const TEAM = [
     focus: ['Marketplaces', 'Listings', 'Orders', 'Account health'],
     talkAbout: ['Running or fixing a store on any platform', 'Listing and catalogue problems', 'Suspended or restricted accounts'] },
 
-  { n: 'Muhammad Hamza', r: 'Business Development Manager & Team Leader', dept: 'Growth', img: '/team-hamza.jpg', facts: [],
+  { n: 'Muhammad Hamza', r: 'Business Development Manager & Team Leader', dept: 'Growth', img: '/team-hamza.webp', facts: [],
     summary: 'First point of contact for new clients, and leads his project team.',
     about: 'Muhammad Hamza is usually the first person a new client speaks to. He listens to what a business needs, shapes a clear scope and proposal, and leads the team that takes the work forward once it starts.',
     handles: [
@@ -175,7 +175,7 @@ export const TEAM = [
     focus: ['Business development', 'Proposals', 'Market planning', 'Team leadership'],
     talkAbout: ['Starting a project with eTricks', 'Choosing platforms and markets', 'Pricing and scope'] },
 
-  { n: 'Team Leader', r: 'Team Leader & Trainer', dept: 'Training', img: '/team-trainer.jpg', facts: [], // TODO: add this person's name
+  { n: 'Team Leader', r: 'Team Leader & Trainer', dept: 'Training', img: '/team-trainer.webp', facts: [], // TODO: add this person's name
     summary: 'Leads a project team and trains every new member.',
     about: 'Leads a team day to day and trains new members, so the standard of work stays the same on every account, no matter who is handling it.',
     handles: [
