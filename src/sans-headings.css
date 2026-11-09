@@ -46,15 +46,3 @@
 /* TikTok Shop panel: black, with its cyan and pink edge glow, so the white logo reads clearly */
 .t-tiktok{background:#050506;color:#fff;border:1px solid rgba(37,244,238,.32);box-shadow:0 -20px 60px rgba(0,0,0,.4),-14px 0 60px rgba(37,244,238,.08),14px 0 60px rgba(254,44,85,.1)}
 .t-tiktok .sp-r li{border-color:rgba(255,255,255,.18)}
-
-/* Hero: readable text over the bright liquid background. The background itself is not touched,
-   only a dark fade on the text side and a soft shadow behind the words. */
-.hero-shade{background:
-  linear-gradient(90deg,rgba(2,6,0,.86) 0%,rgba(2,6,0,.66) 30%,rgba(2,6,0,.22) 58%,transparent 74%),
-  linear-gradient(180deg,rgba(0,0,0,.55),transparent 30%,transparent 55%,rgba(0,0,0,.7))}
-.hero-h{text-shadow:0 2px 3px rgba(0,0,0,.55),0 6px 40px rgba(0,0,0,.75)}
-.hero-h .em{text-shadow:0 2px 3px rgba(0,0,0,.6),0 6px 36px rgba(0,0,0,.85)}
-.hero-l p{color:#f3f5ec;text-shadow:0 1px 2px rgba(0,0,0,.8),0 2px 22px rgba(0,0,0,.75)}
-.hero-cta .ulink.plain,.lrow .mono-s{text-shadow:0 1px 8px rgba(0,0,0,.9)}
-.lrow-l{filter:drop-shadow(0 1px 6px rgba(0,0,0,.85))}
-@media(max-width:800px){.hero-shade{background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.34) 45%,rgba(0,0,0,.72))}}
