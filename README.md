@@ -34,6 +34,21 @@ Almost all text and details live in **`src/data.js`**:
 
 Images are in `public/`. Replace a file with the same name to swap a photo. The office and "Our Markets" photos (`office.jpg`, `about-a.jpg`, `about-b.jpg`) are free stock photos from Pexels and should be replaced with real eTricks photos.
 
+## Deploy
+
+It is a static site (no server needed). On any host:
+
+- **Build command:** `npm run build`
+- **Output folder:** `dist`
+- **Node:** 20 or newer
+
+Routes like `/about` are handled by the browser app, so the host must send every path to `index.html`. This is already set up:
+
+- **Vercel:** `vercel.json`
+- **Netlify and Cloudflare Pages:** `public/_redirects`
+
+To use the domain etricks.co, add it in the host's domain settings and point the DNS records to the host.
+
 ## Notes
 
 - **Forms:** the contact form and call booking send enquiries to `hello@etricks.co` through [FormSubmit](https://formsubmit.co). The first submission triggers an activation email to that address, which must be confirmed once.
