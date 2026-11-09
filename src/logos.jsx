@@ -74,10 +74,10 @@ export function Rotator({ delay = 2600 }) {
   const [i, setI] = useState(0)
   useEffect(() => { const t = setInterval(() => setI((n) => (n + 1) % PLATFORMS.length), delay); return () => clearInterval(t) }, [delay])
   return (
-    <span className="rot" aria-live="polite">
+    <span className="rot" aria-live="polite" aria-label={PLATFORMS[i]}>
       <AnimatePresence mode="wait" initial={false}>
-        <motion.span key={PLATFORMS[i]} className="rot-in em" initial={{ y: '105%', opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: '-105%', opacity: 0 }} transition={{ duration: .6, ease: [.16, 1, .3, 1] }}>
-          {PLATFORMS[i]}
+        <motion.span key={PLATFORMS[i]} className="rot-in" initial={{ y: '105%', opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: '-105%', opacity: 0 }} transition={{ duration: .6, ease: [.16, 1, .3, 1] }}>
+          <PlatformLogo name={PLATFORMS[i]} />
         </motion.span>
       </AnimatePresence>
     </span>

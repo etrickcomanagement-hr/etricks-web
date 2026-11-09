@@ -46,3 +46,8 @@
 /* TikTok Shop panel: black, with its cyan and pink edge glow, so the white logo reads clearly */
 .t-tiktok{background:#050506;color:#fff;border:1px solid rgba(37,244,238,.32);box-shadow:0 -20px 60px rgba(0,0,0,.4),-14px 0 60px rgba(37,244,238,.08),14px 0 60px rgba(254,44,85,.1)}
 .t-tiktok .sp-r li{border-color:rgba(255,255,255,.18)}
+
+/* Hero: the changing platform is now its logo, big, instead of its name in text */
+.rot{height:1.45em;padding-bottom:0}
+.rot-in{display:flex;align-items:center;height:1.45em}
+.rot-in .lg{font-size:.9em;font-weight:600;letter-spacing:-.04em}
