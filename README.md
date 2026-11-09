@@ -32,7 +32,7 @@ Almost all text and details live in **`src/data.js`**:
 - `BOOKING`: days and time slots for the call booking dialog
 - `OFFICE`: office photo
 
-Images are in `public/`. Replace a file with the same name to swap a photo. The office and "Our Markets" photos (`office.jpg`, `about-a.jpg`, `about-b.jpg`) are free stock photos from Pexels and should be replaced with real eTricks photos.
+Images are in `public/`. Replace a file with the same name to swap a photo. The office and "Our Markets" photos (`office.webp`, `about-a.webp`, `about-b.webp`) are free stock photos from Pexels and should be replaced with real eTricks photos.
 
 ## Deploy
 
