@@ -36,9 +36,9 @@ export const WORK_STEPS = [
 // Management page
 export const MANAGE_PLATFORMS = [
   ['Amazon', 'Listing optimisation, inventory watch and advertising support.', ['Listing creation and optimisation', 'Inventory and order handling', 'Account health monitoring', 'Advertising support']],
-  ['eBay', 'Bulk listings, orders and the daily tasks that keep a store tidy.', ['Bulk listings and updates', 'Pricing and stock sync', 'Buyer messages and disputes', 'Feedback and performance tracking']],
+  ['eBay', 'Bulk listings, orders and the daily tasks that keep a store tidy.', ['eBay Seller Account Setup & Verification', 'eBay Listing Creation & Optimisation', 'Stock, Fulfilment & Buyer Support', 'Seller Performance & Sales Reporting']],
   ['TikTok Shop', 'Shop set-up, product uploads and help with content and orders.', ['Shop set-up and uploads', 'Content and creator coordination', 'Campaign and promotion planning', 'Order and returns support']],
-  ['Etsy', 'Listings and shop management that keep your brand voice intact.', ['Listing titles, tags and photos', 'Shop sections and policies', 'Order and message handling', 'Seasonal updates']],
+  ['Etsy', 'Listings and shop management that keep your brand voice intact.', ['Etsy Shop Setup & Verification', 'Etsy Listing Creation & SEO', 'Order Management & Buyer Support', 'Shop Analytics & Sales Optimisation']],
   ['Walmart', 'Catalogue updates, stock checks and everyday store operations.', ['Catalogue and item set-up', 'Compliance and quality checks', 'Inventory updates', 'Sales and returns reporting']],
   ['Shopify', 'A branded storefront that is quick to browse and simple to run.', ['Theme and store set-up', 'Products and collections', 'Apps and automations', 'Speed and conversion tuning']],
   ['Temu', 'Seller set-up, listings and order coordination.', ['Seller account set-up', 'Listing and pricing management', 'Order flow monitoring', 'Regular performance updates']],
@@ -103,8 +103,8 @@ export const SERVICES = [
 export const PLATFORM_DETAIL = {
   Amazon: { line: 'Marketplace depth, done carefully.', points: ['Listing creation and optimisation', 'Inventory and order handling', 'Account health monitoring', 'Suspension appeals and reinstatement'] },
   'TikTok Shop': { line: 'Where content meets checkout.', points: ['Shop setup and product uploads', 'Content and creator support', 'Campaign and promotion planning', 'Order and returns management'] },
-  eBay: { line: 'Steady, tidy store operations.', points: ['Bulk listings and updates', 'Pricing and stock sync', 'Buyer messages and disputes', 'Performance and feedback tracking'] },
-  Etsy: { line: 'A shop that keeps your brand voice.', points: ['Listing titles, tags and photos', 'Shop sections and policies', 'Order and message handling', 'Seasonal updates'] },
+  eBay: { line: 'Steady, tidy store operations.', points: ['eBay Seller Account Setup & Verification', 'eBay Listing Creation & Optimisation', 'Stock, Fulfilment & Buyer Support', 'Seller Performance & Sales Reporting'] },
+  Etsy: { line: 'A shop that keeps your brand voice.', points: ['Etsy Shop Setup & Verification', 'Etsy Listing Creation & SEO', 'Order Management & Buyer Support', 'Shop Analytics & Sales Optimisation'] },
   Walmart: { line: 'Built for strict marketplace rules.', points: ['Seller onboarding support', 'Catalogue and item set-up', 'Compliance and quality checks', 'Reporting on sales and returns'] },
   Shopify: { line: 'Your own storefront, running well.', points: ['Store setup and theme tuning', 'Product and collection management', 'App and automation set-up', 'Conversion and speed improvements'] },
   Temu: { line: 'Selling on a fast-moving platform.', points: ['Seller account set-up', 'Listing and pricing management', 'Order flow monitoring', 'Regular performance updates'] },
