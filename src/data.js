@@ -14,7 +14,7 @@ export const CONTACT = {
 export const BOOKING = {
   days: [1, 2, 3, 4, 5, 6],
   howManyDays: 8,
-  slots: ['10:00 AM', '11:00 AM', '12:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM'],
+  slots: ['10:00 AM', '11:00 AM', '12:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '8:00 PM', '9:00 PM', '10:00 PM', '11:00 PM', '12:00 AM', '1:00 AM', '2:00 AM'],
   tz: 'Pakistan time (PKT)',
 }
 
