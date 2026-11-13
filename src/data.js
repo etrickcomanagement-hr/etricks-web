@@ -63,25 +63,41 @@ export const ACTIVITY = [
 
 export const PLATFORMS = ['Amazon', 'TikTok Shop', 'eBay', 'Etsy', 'Walmart', 'Shopify', 'Temu']
 
+// sub = small cards under the description, note = a highlighted line (like pricing), cta = [button text, link]
 export const SERVICES = [
   { n: '01', t: 'E-Commerce Management', ico: '◎',
     d: 'The daily grind of running a store, handled. Listings, orders, stock, customer messages and weekly reporting, run by a team that knows your catalogue.',
-    tags: ['Listings', 'Orders', 'Inventory', 'Reporting'] },
+    tags: ['Listings', 'Orders', 'Inventory', 'Reporting'],
+    cta: ['See how management works', '/management'] },
   { n: '02', t: 'Account Recovery', ico: '↺',
     d: 'Suspended, restricted or flagged? We trace the cause, write the appeal and rebuild trust with the marketplace.',
-    tags: ['Appeals', 'Root-cause fixes', 'Reinstatement'] },
-  { n: '03', t: 'Company Formation', ico: '▣',
-    d: 'US, UK and UAE company setup with the paperwork marketplaces ask for, so your business is ready to sell properly.',
-    tags: ['US', 'UK', 'UAE'] },
+    tags: ['Appeals', 'Root-cause fixes', 'Reinstatement'],
+    cta: ['Talk to us about this', '/contact'] },
+  { n: '03', t: 'Company Formation', ico: '▣', subtitle: 'UK Ltd & US LLC Formation',
+    d: 'Set up a UK limited company or a US LLC for your eCommerce business. We guide you through the registration requirements, help prepare your formation documents, and explain the next steps once your company is registered.',
+    sub: [
+      ['UK Ltd', 'Get support with your Companies House registration, including company details, director and shareholder information, and registered office requirements.'],
+      ['US LLC', 'Get support with state registration, including formation paperwork, member details, and registered agent requirements.'],
+    ],
+    note: ['Formation packages start at $300 USD.', 'We confirm your package inclusions and applicable fees before you proceed.'],
+    tags: [],
+    cta: ['Get a Formation Quote', '/contact'] },
   { n: '04', t: 'Software & Automation', ico: '⌘',
-    d: 'Dashboards, internal tools and automations shaped around how your store actually runs, from stock sync to custom reporting.',
-    tags: ['Dashboards', 'Automation', 'Integrations'] },
-  { n: '05', t: 'Web Development', ico: '◇',
-    d: 'Fast storefronts and brand sites built to turn visitors into customers, on Shopify or a custom stack.',
-    tags: ['Shopify', 'Custom builds', 'Speed'] },
+    d: 'We build custom software around how your business works. From client portals and team dashboards to automated approvals and reporting, we connect your tools and take repetitive tasks off your team’s plate, so everyone can see what’s done and what needs their attention.',
+    tags: [],
+    cta: ['Tell Us What You Want to Automate', '/contact'] },
+  { n: '05', t: 'Web & Software Development', ico: '◇',
+    d: 'We build websites, online stores, web and mobile apps, and custom software for businesses across industries. Whether you’re launching something new or upgrading an existing platform, we develop it around how your business works and what your customers need.',
+    tags: ['Websites', 'eCommerce', 'Web & Mobile Apps', 'Custom Software'],
+    cta: ['Discuss Your Project', '/contact'] },
   { n: '06', t: 'Marketing & Consulting', ico: '↗',
-    d: 'Platform-specific growth plans, from TikTok Shop content to paid ads, backed by honest audits of where your store stands.',
-    tags: ['TikTok Shop', 'Paid ads', 'Store audits'] },
+    d: 'We help businesses across industries reach the right audience and turn interest into enquiries or sales. From planning your marketing strategy to running paid campaigns and managing your social media, we handle the day-to-day work and show you what’s performing.',
+    sub: [
+      ['Digital Marketing', 'Campaign strategy, paid advertising, audience targeting, and performance reporting.'],
+      ['Social Media Management', 'Content planning, post design and copywriting, scheduling, and tracking what your audience responds to.'],
+    ],
+    tags: ['Paid Ads', 'Social Media', 'Content Strategy'],
+    cta: ['Discuss Your Marketing Goals', '/contact'] },
 ]
 
 export const PLATFORM_DETAIL = {

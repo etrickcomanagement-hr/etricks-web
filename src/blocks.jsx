@@ -36,7 +36,7 @@ export function ServiceRows({ title = 'What we do', intro }) {
       </div>
       <div className="rows">
         {SERVICES.map((s, i) => (
-          <div key={s.n} className={'row ' + (open === i ? 'open' : '')} onMouseEnter={() => setOpen(i)}>
+          <div key={s.n} className={'row ' + (open === i ? 'open' : '')}>
             <button className="row-h" onClick={() => setOpen(open === i ? -1 : i)} aria-expanded={open === i}>
               <span className="row-n">{s.n}</span>
               <span className="row-t serif">{s.t}</span>
@@ -46,11 +46,16 @@ export function ServiceRows({ title = 'What we do', intro }) {
               {open === i && (
                 <motion.div className="row-b" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: .55, ease }}>
                   <div className="row-bi">
+                    {s.subtitle && <h4 className="row-sub">{s.subtitle}</h4>}
                     <p>{s.d}</p>
-                    <div className="tags">{s.tags.map((t) => <span key={t}>{t}</span>)}</div>
-                    {s.t === 'E-Commerce Management'
-                      ? <Link to="/management" className="ulink">See how management works <i>↗</i></Link>
-                      : <Link to="/contact" className="ulink">Talk to us about this <i>↗</i></Link>}
+                    {s.tags.length > 0 && <div className="tags">{s.tags.map((t) => <span key={t}>{t}</span>)}</div>}
+                    {s.sub && (
+                      <div className="row-subs">
+                        {s.sub.map(([t, d]) => <div className="row-subi" key={t}><b>{t}</b><span>{d}</span></div>)}
+                      </div>
+                    )}
+                    {s.note && <div className="row-note"><b>{s.note[0]}</b><span>{s.note[1]}</span></div>}
+                    <Link to={s.cta[1]} className="ulink">{s.cta[0]} <i>↗</i></Link>
                   </div>
                 </motion.div>
               )}
