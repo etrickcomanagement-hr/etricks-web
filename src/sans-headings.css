@@ -83,3 +83,4 @@
 .vm-os-i span{color:#c4c8bb;font-size:.93rem;line-height:1.5}
 @media(max-width:900px){.vm-os-g{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.vm-os-g{grid-template-columns:1fr}}
+.obx-bg img{object-position:50% 50%}
