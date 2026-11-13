@@ -122,3 +122,5 @@
   .vm-os{padding:22px 16px}
   .bl-a .serif{font-size:clamp(2.6rem,15vw,3.4rem)}
 }
+/* phone hero: a soft shade under the text so the copy stays readable on the bright liquid */
+@media(max-width:800px){.hero-shade{background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.25) 40%,rgba(0,0,0,.45) 62%,rgba(0,0,0,.75))}}

@@ -2,9 +2,13 @@ import { useEffect, useRef } from 'react'
 
 const VS = 'attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}'
 const FS = `
+#ifdef GL_FRAGMENT_PRECISION_HIGH
 precision highp float;
+#else
+precision mediump float;
+#endif
 uniform vec2 r; uniform float t; uniform vec2 m;
-float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+HASH_FN
 float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
   return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
 float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*n(p);p=p*2.03+vec2(3.1,1.7);a*=.5;}return v;}
@@ -37,6 +41,12 @@ void main(){
   gl_FragColor=vec4(col,1.);
 }`
 
+// Phone GPUs lose precision on sin() with big numbers, which turns the noise into hard blocks.
+// On phones/tablets we use a hash without sin(); desktop keeps the original one untouched.
+const HASH_DESKTOP = 'float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}'
+const HASH_PHONE = 'float h(vec2 p){vec3 q=fract(vec3(p.xyx)*.1031);q+=dot(q,q.yzx+33.33);return fract((q.x+q.y)*q.z);}'
+const isPhone = () => window.matchMedia('(pointer:coarse), (max-width:800px)').matches
+
 export default function Liquid() {
   const ref = useRef(null)
   useEffect(() => {
@@ -45,7 +55,7 @@ export default function Liquid() {
     if (!gl) { c.style.display = 'none'; return }
     const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s }
     const pr = gl.createProgram()
-    gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(pr)
+    gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS.replace('HASH_FN', isPhone() ? HASH_PHONE : HASH_DESKTOP))); gl.linkProgram(pr)
     if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) { c.style.display = 'none'; return }
     gl.useProgram(pr)
     const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf)
@@ -53,7 +63,7 @@ export default function Liquid() {
     const loc = gl.getAttribLocation(pr, 'a'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0)
     const U = { r: gl.getUniformLocation(pr, 'r'), t: gl.getUniformLocation(pr, 't'), m: gl.getUniformLocation(pr, 'm') }
     const mouse = { x: .5, y: .5, tx: .5, ty: .5 }
-    const SCALE = 0.55
+    const SCALE = isPhone() ? 0.65 : 0.55
     const size = () => { c.width = Math.max(2, c.clientWidth * SCALE); c.height = Math.max(2, c.clientHeight * SCALE); gl.viewport(0, 0, c.width, c.height) }
     const mv = (e) => { mouse.tx = e.clientX / window.innerWidth; mouse.ty = 1 - e.clientY / window.innerHeight }
     let raf, visible = true, start = performance.now()
