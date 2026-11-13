@@ -129,7 +129,7 @@ export const PROMISES = [
 export const FOUNDER = {
   name: 'Shah Mohsin', // TODO: confirm spelling
   role: 'Founder & CEO',
-  img: '/ceo.webp',
+  img: '/team-mohsin.webp',
   quote: 'I started eTricks because I wanted store owners to know who is working on their business, what has been done and where we need their input.',
   principles: [
     ['Know who is working on your business', 'Every client should be able to name the people behind their store, and reach them.'],
@@ -156,9 +156,9 @@ export const TEAM = [
     focus: ['Strategy', 'Client relationships', 'Growth', 'Culture'],
     talkAbout: ['Long-term plans and partnerships', 'Anything you want escalated', 'Feedback on how we work'] },
 
-  { n: 'Syed Shahraz', r: 'Operations Manager', dept: 'Operations', img: '/team-shahraz.webp', facts: [],
+  { n: 'Syed Sheraz', r: 'Operations Manager', dept: 'Operations', img: '/team-shahraz.webp', facts: [],
     summary: 'Keeps the daily work moving across every department.',
-    about: 'Syed Shahraz looks after how the work gets done day to day. He coordinates the department teams, keeps tasks moving and makes sure every project has an owner, so clients get steady attention and clear updates.',
+    about: 'Syed Sheraz looks after how the work gets done day to day. He coordinates the department teams, keeps tasks moving and makes sure every project has an owner, so clients get steady attention and clear updates.',
     handles: [
       ['Daily operations', "Keeps each store's routine tasks on schedule."],
       ['Cross-team coordination', 'Connects listings, support, growth and development so nothing falls between teams.'],
@@ -170,39 +170,63 @@ export const TEAM = [
 
   { n: 'Talha Syed', r: 'Head of E-Commerce Operations', dept: 'E-Commerce', img: '/team-talha.webp', facts: [],
     summary: 'Leads the teams that run client stores across the marketplaces.',
-    about: 'Talha Syed leads eTricks e-commerce operations. His teams manage client stores across Amazon, eBay, TikTok Shop, Etsy, Walmart, Shopify and Temu: listings, orders, stock and account health, so owners can focus on the business.',
+    about: 'Talha Syed leads e-commerce operations at eTricks. He oversees client stores across Amazon, eBay, TikTok Shop, Etsy, Walmart, Shopify, and Temu. He coordinates store teams, keeps clients updated on performance, and follows up on issues through resolution.',
     handles: [
-      ['Marketplace store management', 'Daily store tasks across every platform we manage.'],
-      ['Listings and catalogue', 'Creation, optimisation and regular updates.'],
-      ['Orders and inventory', 'Keeps orders flowing and stock in sync.'],
-      ['Account health', 'Monitors performance and leads recovery cases when an account is restricted.'],
+      ['Operations Oversight', 'Reviews daily store activity and account health.'],
+      ['Team Management', 'Sets priorities with team leads and tracks progress.'],
+      ['Client Updates', 'Shares store performance, completed work, and next steps.'],
+      ['Query & Issue Resolution', 'Answers client queries and follows up until issues are resolved.'],
     ],
     focus: ['Marketplaces', 'Listings', 'Orders', 'Account health'],
     talkAbout: ['Running or fixing a store on any platform', 'Listing and catalogue problems', 'Suspended or restricted accounts'] },
 
-  { n: 'Muhammad Hamza', r: 'Business Development Manager & Team Leader', dept: 'Growth', img: '/team-hamza.webp', facts: [],
-    summary: 'First point of contact for new clients, and leads his project team.',
-    about: 'Muhammad Hamza is usually the first person a new client speaks to. He listens to what a business needs, shapes a clear scope and proposal, and leads the team that takes the work forward once it starts.',
+  { n: 'Muhammad Hamza', r: 'Business Development Manager', dept: 'Growth', img: '/team-hamza.webp', facts: [],
+    summary: 'Leads business development and scopes new projects with prospective clients.',
+    about: 'Muhammad Hamza leads business development and lead generation at eTricks. He works with prospective clients to understand their goals, define the scope of new projects, and identify where automation can reduce manual work.',
     handles: [
-      ['New enquiries', 'Understands your store, goals and challenges in the first conversation.'],
-      ['Scope and proposals', 'Turns your needs into a clear plan, price and next steps.'],
-      ['Market planning', 'Helps decide which platforms and markets fit your business.'],
-      ['Team leadership', 'Leads a project team and keeps it aligned with the client.'],
+      ['Lead Generation & Outreach', 'Identifies potential clients and manages outreach and follow-ups.'],
+      ['Client Discovery', 'Discusses business goals, current challenges, and project requirements.'],
+      ['Project Scope & Proposals', 'Defines deliverables, pricing, and next steps for new projects.'],
+      ['Automation Planning', 'Reviews manual workflows and identifies tasks and reporting that can be automated.'],
     ],
-    focus: ['Business development', 'Proposals', 'Market planning', 'Team leadership'],
-    talkAbout: ['Starting a project with eTricks', 'Choosing platforms and markets', 'Pricing and scope'] },
+    focus: ['Business Development', 'Lead Generation', 'Project Scoping', 'Workflow Automation'],
+    talkAbout: ['Starting a project with eTricks', 'Project scope, pricing, and proposals', 'Automating repetitive tasks and reporting'] },
 
-  { n: 'Team Leader', r: 'Team Leader & Trainer', dept: 'Training', img: '/team-trainer.webp', facts: [], // TODO: add this person's name
-    summary: 'Leads a project team and trains every new member.',
-    about: 'Leads a team day to day and trains new members, so the standard of work stays the same on every account, no matter who is handling it.',
+  { n: 'Muhammad Zeeshan', r: 'eBay Trainer', dept: 'Training', img: '/team-trainer.webp', facts: [],
+    summary: 'Trains students and freshers to run an eBay store from scratch.',
+    about: 'Muhammad Zeeshan helps students and freshers learn how to manage an eBay store from scratch. His training starts with Seller Hub basics and builds towards practical tasks like researching products, creating listings, and handling orders.',
     handles: [
-      ['Team leadership', 'Guides a project team through the daily work.'],
-      ['Training and onboarding', 'Brings new team members up to the eTricks standard.'],
-      ['Playbooks and standards', 'Keeps the way we work consistent and written down.'],
-      ['Quality coaching', 'Reviews work and coaches the team to improve.'],
+      ['eBay Basics', 'Introduces beginners to Seller Hub and how an eBay store operates.'],
+      ['Product Research & Listings', 'Teaches learners how to compare products and create listings with clear titles and accurate item details.'],
+      ['Orders & Buyer Support', 'Walks learners through order tracking, buyer messages, and returns.'],
+      ['Practice & Feedback', 'Reviews practice tasks and shows learners what to improve before handling live store work.'],
     ],
-    focus: ['Training', 'Onboarding', 'Standards', 'Coaching'],
-    talkAbout: ['How our team is trained', 'Standards and quality on your account', 'Joining the team'] },
+    focus: ['Beginner Training', 'Product Research', 'Listing Optimisation', 'Store Operations'],
+    talkAbout: ['Getting started with eBay without prior experience', 'What you’ll learn and practise during training', 'Preparing for your first eBay operations role'] },
+
+  { n: 'Tahreem Afzal', r: 'Marketplace Performance Manager', dept: 'E-Commerce', img: '/team-tahreem.webp', facts: [],
+    summary: 'Reviews how client stores perform and finds where to improve them.',
+    about: 'Tahreem Afzal reviews how client stores perform across the marketplaces eTricks manages. She uses sales, conversion, and advertising data to identify where listings, pricing, or promotions can improve. She works with store teams to make those changes and tracks their impact.',
+    handles: [
+      ['Store Performance Reviews', 'Tracks sales, conversion rates, and advertising performance.'],
+      ['Listing & Pricing Optimisation', 'Identifies which products need listing updates or pricing changes.'],
+      ['Advertising & Promotions', 'Reviews campaign results and recommends where to adjust spend.'],
+      ['Performance Follow-Up', 'Coordinates changes with store teams and measures the results.'],
+    ],
+    focus: ['Marketplace Analytics', 'Listing Optimisation', 'Pricing Strategy', 'Advertising Performance'],
+    talkAbout: ['How your store and products are performing', 'Which listings, prices, or promotions to review', 'What changed after a store update or campaign'] },
+
+  { n: 'Kawish Khan', r: 'Client Success Manager', dept: 'Client Success', img: '/team-kawish.webp', facts: [],
+    summary: 'Point of contact for clients from onboarding onward.',
+    about: 'Kawish Khan is a point of contact for eTricks clients from onboarding onward. She keeps clients informed about their stores, coordinates requests with the teams managing them, and follows up until clients have a clear answer or next step.',
+    handles: [
+      ['Client Onboarding', 'Confirms client goals, priorities, and reporting preferences.'],
+      ['Client Updates & Reporting', 'Shares store performance, completed work, and upcoming priorities.'],
+      ['Queries & Issue Resolution', 'Answers client questions and follows up with the relevant team.'],
+      ['Feedback & Follow-Up', 'Collects client feedback and tracks agreed actions through completion.'],
+    ],
+    focus: ['Client Onboarding', 'Performance Reporting', 'Issue Resolution', 'Client Feedback'],
+    talkAbout: ['What to expect when you start with eTricks', 'Your store updates, reports, and next steps', 'Questions, concerns, or feedback about your account'] },
 ]
 
 export const FAQS = [
