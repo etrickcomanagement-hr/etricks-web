@@ -25,14 +25,21 @@ export function About() {
       <section className="section"><div className="wrap split">
         <div><p className="mono-s">(01) Our story</p><h2 className="serif h2"><Words text="Why we built eTricks." em={['eTricks.']} /></h2></div>
         <div>
-          <Reveal><p className="big-p">Launching a store is the easy bit. After that come the stale listings, the orders that need chasing and the problems nobody warned you about.</p></Reveal>
-          <Reveal delay={.1}><p className="lead" style={{ marginTop: 26 }}>We built eTricks so store owners would have a team they can rely on for exactly that work: hands-on management, a dedicated team and clear reporting, every week.</p></Reveal>
+          <Reveal><p className="big-p">From your first listing to your busiest sales day, running an online store takes constant attention.</p></Reveal>
+          <Reveal delay={.1}><p className="lead" style={{ marginTop: 26 }}>We built eTricks to give store owners a dedicated team they can count on through it all. We keep listings up to date, track orders, and resolve day-to-day issues. With real-time reporting in your client portal, you can check how your store is doing and see what needs your attention at any moment.</p></Reveal>
         </div>
       </div></section>
       <section className="wrap"><div className="vm">
         <Reveal className="vm-c vm-lime"><p className="mono-s dark">Our vision</p><h3 className="serif">An agency the world can trust.</h3><p>To grow an eCommerce agency from Pakistan that store owners everywhere count on.</p></Reveal>
         <Reveal delay={.1} className="vm-c vm-paper"><p className="mono-s dark">Our mission</p><h3 className="serif">Smooth stores. Clear numbers.</h3><p>To keep online stores running well and give owners the information they need to make good decisions.</p></Reveal>
-      </div></section>
+      <Reveal delay={.15} className="vm-os">
+        <div className="vm-os-h"><p className="mono-s">The eTricks operating system</p><h3 className="serif">One way of working, behind every store.</h3></div>
+        <div className="vm-os-g">
+          {[['Listings', 'Every product page written, checked and kept current.'], ['Orders & stock', 'Orders tracked and stock watched, so nothing stalls.'], ['Account health', 'Problems spotted early and fixed before they cost you sales.'], ['Client portal', 'Live reporting, so you always see how your store is doing.']].map(([t, d], i) => (
+            <div className="vm-os-i" key={t}><i>0{i + 1}</i><b>{t}</b><span>{d}</span></div>
+          ))}
+        </div>
+      </Reveal></div></section>
       <MarketsShowcase />
       <WorkTimeline />
       <FounderSpotlight />
