@@ -84,3 +84,41 @@
 @media(max-width:900px){.vm-os-g{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.vm-os-g{grid-template-columns:1fr}}
 .obx-bg img{object-position:50% 50%}
+
+/* ===== Mobile polish (phones) ===== */
+@media(max-width:800px){
+  /* services rows: use the full width instead of a number gutter */
+  .row-bi{grid-template-columns:1fr;gap:14px;padding-bottom:30px}
+  .row-bi p,.row-bi .ulink,.row-bi .tags,.row-bi h4.row-sub,.row-bi .row-subs,.row-bi .row-note{grid-column:1}
+  .row-bi p{font-size:1.05rem}
+  .row-h{grid-template-columns:34px 1fr 28px}
+  /* how we work + founder beliefs: stack number above text */
+  .prow{grid-template-columns:1fr;gap:8px}
+  .prow p{grid-column:1}
+  .ideo-i{grid-template-columns:1fr;gap:6px}
+  /* platform panels: logo and points must fit the card */
+  .sp{padding:24px 20px;gap:22px}
+  .sp>*{min-width:0}
+  .sp-l h3.sp-logo{font-size:clamp(2.4rem,11vw,3.6rem);max-width:100%}
+  .sp-l h3.sp-logo .lg{flex-wrap:nowrap;max-width:100%}
+  .sp-r li{font-size:1.02rem;gap:12px;padding:14px 0;overflow-wrap:anywhere}
+  .sp-l p{font-size:1.05rem}
+  /* floating 3D shapes stay out of the text */
+  .st-blob{width:110px;top:-14px;bottom:auto;right:-14px;opacity:.5;transform:none}
+  .bl-jack{width:110px;top:14px;right:10px;transform:none;opacity:.55}
+  .mk-jack{width:90px}
+  /* floating whatsapp button: smaller, out of the way */
+  .wa{width:46px;height:46px;right:14px;bottom:14px;font-size:.75rem}
+  /* statement + numbers */
+  .figs{gap:22px 14px}
+  /* hero spacing */
+  .hero-in{padding-top:96px}
+  .hero-l{gap:18px}
+}
+@media(max-width:420px){
+  .nav{padding:12px 14px}
+  .pillb{padding:10px 16px;font-size:.88rem}
+  .vm-c{min-height:0;padding:28px 24px;gap:22px}
+  .vm-os{padding:22px 16px}
+  .bl-a .serif{font-size:clamp(2.6rem,15vw,3.4rem)}
+}
