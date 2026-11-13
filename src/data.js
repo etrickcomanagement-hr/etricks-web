@@ -61,7 +61,7 @@ export const ACTIVITY = [
   ['Customer message answered', 'Replied within the target time'],
 ]
 
-export const PLATFORMS =['Amazon', 'TikTok Shop', 'eBay', 'Walmart', 'Shopify', 'Temu']
+export const PLATFORMS = ['Amazon', 'TikTok Shop', 'eBay', 'Etsy', 'Walmart', 'Shopify', 'Temu']
 
 export const SERVICES = [
   { n: '01', t: 'E-Commerce Management', ico: '◎',
@@ -88,6 +88,7 @@ export const PLATFORM_DETAIL = {
   Amazon: { line: 'Marketplace depth, done carefully.', points: ['Listing creation and optimisation', 'Inventory and order handling', 'Account health monitoring', 'Suspension appeals and reinstatement'] },
   'TikTok Shop': { line: 'Where content meets checkout.', points: ['Shop setup and product uploads', 'Content and creator support', 'Campaign and promotion planning', 'Order and returns management'] },
   eBay: { line: 'Steady, tidy store operations.', points: ['Bulk listings and updates', 'Pricing and stock sync', 'Buyer messages and disputes', 'Performance and feedback tracking'] },
+  Etsy: { line: 'A shop that keeps your brand voice.', points: ['Listing titles, tags and photos', 'Shop sections and policies', 'Order and message handling', 'Seasonal updates'] },
   Walmart: { line: 'Built for strict marketplace rules.', points: ['Seller onboarding support', 'Catalogue and item set-up', 'Compliance and quality checks', 'Reporting on sales and returns'] },
   Shopify: { line: 'Your own storefront, running well.', points: ['Store setup and theme tuning', 'Product and collection management', 'App and automation set-up', 'Conversion and speed improvements'] },
   Temu: { line: 'Selling on a fast-moving platform.', points: ['Seller account set-up', 'Listing and pricing management', 'Order flow monitoring', 'Regular performance updates'] },
@@ -193,6 +194,6 @@ export const FAQS = [
   ['Do you work with new sellers or established brands?', 'Both. Some clients are launching their first store, others are running several and need dependable hands. We start by learning where you are.'],
   ['Can I hire you for just one task?', 'Yes. You can bring us in for a single project or keep us for ongoing support. Scope, responsibilities and pricing are agreed before we start.'],
   ['Who will actually handle my project?', 'A dedicated team for your account, with one coordinator who keeps you updated and pulls in specialists whenever needed.'],
-  ['Which platforms and markets do you cover?', 'Amazon, TikTok Shop, eBay, Walmart, Shopify, Temu and more, for sellers in the UK, USA, Australia, Canada and Saudi Arabia.'],
+  ['Which platforms and markets do you cover?', 'Amazon, TikTok Shop, eBay, Etsy, Walmart, Shopify, Temu and more, for sellers in the UK, USA, Australia, Canada and Saudi Arabia.'],
   ['How do we get started, and what does it cost?', 'Book a free consultation and tell us about your goals. We reply with a proposal covering the work, the price and the next steps. Cost depends on scope and how much support you want.'],
 ]

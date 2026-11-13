@@ -53,7 +53,7 @@ To use the domain etricks.co, add it in the host's domain settings and point the
 
 - **Forms:** the contact form and call booking send enquiries to `hello@etricks.co` through [FormSubmit](https://formsubmit.co). The first submission triggers an activation email to that address, which must be confirmed once.
 - **Fonts:** DM Sans and DM Mono from Google Fonts.
-- **Platform logos** (Amazon, eBay, TikTok Shop, Walmart, Shopify, Temu, Etsy) are simple wordmarks drawn in code, not the official logo files.
+- **Platform logos** (Amazon, eBay, TikTok Shop, Etsy, Walmart, Shopify, Temu) are simple wordmarks drawn in code, not the official logo files.
 - three.js and the world-map data load on demand, so the first page load stays light.
 
 ## Structure

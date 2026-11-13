@@ -51,3 +51,7 @@
 .rot{height:1.45em;padding-bottom:0}
 .rot-in{display:flex;align-items:center;height:1.45em}
 .rot-in .lg{font-size:.9em;font-weight:600;letter-spacing:-.04em}
+
+/* Etsy panel: warm cream, so its orange logo stays clear */
+.t-etsy{background:#f7e4d3;color:#1d1008;--shop:#3f7a0b}
+.lrow-l{gap:clamp(12px,1.4vw,22px)}

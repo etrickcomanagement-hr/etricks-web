@@ -71,8 +71,8 @@ function SAFlag() {
 const CARDS = [
   { code: 'UK', name: ['United', 'Kingdom', '(UK)'], Flag: UKFlag, text: 'We manage TikTok Shop, eBay, Etsy, Amazon and Shopify stores for UK sellers, with full compliance, creative optimisation and steady growth.' },
   { code: 'US', name: ['United', 'States', '(US)'], Flag: USFlag, text: 'We manage TikTok Shop, eBay, Etsy, Walmart, Amazon and Shopify stores for US sellers, with full compliance, creative optimisation and steady growth.' },
-  { code: 'AU', name: ['Australia', '(AU)'], Flag: AUFlag, text: 'We manage TikTok Shop, eBay, Amazon and Shopify stores for Australian sellers, with local compliance, creative optimisation and steady growth.' },
-  { code: 'CA', name: ['Canada', '(CA)'], Flag: CAFlag, text: 'We manage Amazon, eBay, Walmart and Shopify stores for Canadian sellers, with full compliance, careful listings and steady growth.' },
+  { code: 'AU', name: ['Australia', '(AU)'], Flag: AUFlag, text: 'We manage TikTok Shop, eBay, Etsy, Amazon and Shopify stores for Australian sellers, with local compliance, creative optimisation and steady growth.' },
+  { code: 'CA', name: ['Canada', '(CA)'], Flag: CAFlag, text: 'We manage Amazon, eBay, Etsy, Walmart and Shopify stores for Canadian sellers, with full compliance, careful listings and steady growth.' },
   { code: 'KSA', name: ['Saudi', 'Arabia', '(KSA)'], Flag: SAFlag, text: 'We manage Amazon and Shopify stores for sellers in Saudi Arabia, with marketplace compliance, clear listings and steady growth.' },
 ]
 

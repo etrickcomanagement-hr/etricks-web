@@ -63,7 +63,7 @@ export function ServiceRows({ title = 'What we do', intro }) {
 }
 
 /* ---------- Platforms: stacking colour panels (Clay) ---------- */
-const TONES = ['t-lime', 't-tiktok', 't-paper', 't-sage', 't-dark', 't-lime2']
+const TONES = ['t-lime', 't-tiktok', 't-paper', 't-etsy', 't-sage', 't-dark', 't-lime2']
 export function PlatformStack() {
   return (
     <section className="section" style={{ paddingBottom: 0 }}><div className="wrap">
@@ -77,7 +77,7 @@ export function PlatformStack() {
           return (
             <article key={p} className={'sp ' + TONES[i]} style={{ '--i': i }}>
               <div className="sp-l">
-                <span className="mono-s">{String(i + 1).padStart(2, '0')} / 06</span>
+                <span className="mono-s">{String(i + 1).padStart(2, '0')} / {String(PLATFORMS.length).padStart(2, '0')}</span>
                 <h3 className="sp-logo" aria-label={p}><PlatformLogo name={p} /></h3>
                 <p>{d.line}</p>
               </div>
