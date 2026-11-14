@@ -7,6 +7,9 @@ import { Faq } from './sections.jsx'
 import { BigLink } from './ui.jsx'
 import { MANAGE_PLATFORMS, WHY_TEAM, ACTIVITY } from './data.js'
 
+// Platforms that have their own page. A click on these rows opens that page.
+const PAGES = { eBay: '/ebay', Etsy: '/etsy', Walmart: '/walmart' }
+
 /* ---------- live-looking store activity card (sample) ---------- */
 function ActivityCard() {
   const [n, setN] = useState(4)
@@ -36,12 +39,23 @@ function PlatformList() {
     <div className="mpl" role="list">
       {MANAGE_PLATFORMS.map(([name, desc, points], i) => (
         <div key={name} role="listitem" className={'mpl-i ' + (open === i ? 'on' : '')} onMouseEnter={() => setOpen(i)}>
-          <button className="mpl-h" onClick={() => setOpen(open === i ? -1 : i)} aria-expanded={open === i}>
-            <span className="mpl-n">0{i + 1}</span>
-            <span className="mpl-lg"><PlatformLogo name={name} /></span>
-            <span className="mpl-t"><b>{name}</b><small>{desc}</small></span>
-            <span className="mpl-a" aria-hidden="true">↗</span>
-          </button>
+          {PAGES[name]
+            ? (
+              <Link to={PAGES[name]} className="mpl-h" aria-label={name + ': see the service page'}>
+                <span className="mpl-n">0{i + 1}</span>
+                <span className="mpl-lg"><PlatformLogo name={name} /></span>
+                <span className="mpl-t"><b>{name}</b><small>{desc}</small></span>
+                <span className="mpl-a" aria-hidden="true">↗</span>
+              </Link>
+            )
+            : (
+              <button className="mpl-h" onClick={() => setOpen(open === i ? -1 : i)} aria-expanded={open === i}>
+                <span className="mpl-n">0{i + 1}</span>
+                <span className="mpl-lg"><PlatformLogo name={name} /></span>
+                <span className="mpl-t"><b>{name}</b><small>{desc}</small></span>
+                <span className="mpl-a" aria-hidden="true">+</span>
+              </button>
+            )}
           <AnimatePresence initial={false}>
             {open === i && (
               <motion.ul className="mpl-b" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: .45, ease }}>
