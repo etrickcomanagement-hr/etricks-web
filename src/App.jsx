@@ -17,6 +17,7 @@ const TeamPage = lazy(() => importInner().then((m) => ({ default: m.TeamPage }))
 const EbayPage = lazy(() => import('./ebay.jsx').then((m) => ({ default: m.EbayPage })))
 const EtsyPage = lazy(() => import('./etsy.jsx').then((m) => ({ default: m.EtsyPage })))
 const WalmartPage = lazy(() => import('./walmart.jsx').then((m) => ({ default: m.WalmartPage })))
+const TikTokPage = lazy(() => import('./tiktok.jsx').then((m) => ({ default: m.TikTokPage })))
 const NotFound = lazy(() => importInner().then((m) => ({ default: m.NotFound })))
 const ContactPage = lazy(() => importInner().then((m) => ({ default: m.ContactPage })))
 const TalkPage = lazy(() => importTalk().then((m) => ({ default: m.TalkPage })))
@@ -31,6 +32,7 @@ const SEO = {
   '/ebay': ['eBay Store Management | eTricks', 'eBay marketplace management across seven markets: product sourcing, account management, four business models and documented store performance.'],
   '/etsy': ['Etsy Store Management | eTricks', 'Etsy store setup, management and growth: product research, supplier coordination, two business models and documented store performance.'],
   '/walmart': ['Walmart Marketplace Management | eTricks', 'Walmart US Marketplace management: product sourcing, 3PL and WFS fulfillment, two business models and documented store performance.'],
+  '/tiktok-shop': ['TikTok Shop Management | eTricks', 'TikTok Shop management for UK and USA sellers: product research, supplier coordination, creator marketing, four business models and documented store performance.'],
   '/about': ['About | eTricks', 'eTricks is an eCommerce agency based in Multan, Pakistan, working with sellers in the UK, US, Australia, Canada and Saudi Arabia.'],
   '/team': ['Team | eTricks', 'Meet the people behind eTricks and what each of them looks after.'],
   '/talk': ['Book a Call | eTricks', 'Book a free 30-minute call with the eTricks team about your store.'],
@@ -118,7 +120,7 @@ function Footer() {
       <div className="fgrid">
         <div><img src="/logo.webp" alt="eTricks" width="62" height="64" loading="lazy" decoding="async" style={{ height: 64, width: "auto", marginBottom: 18 }} /><p style={{ maxWidth: '34ch' }}>Based in Pakistan. Built for global eCommerce. We launch, scale and fix online stores.</p></div>
         <div><h5>Menu</h5>{NAV.map(([to, l]) => <Link key={to} to={to}>{l}</Link>)}</div>
-        <div><h5>Services</h5><Link to="/services">E-Commerce Management</Link><Link to="/ebay">eBay Store Management</Link><Link to="/etsy">Etsy Store Management</Link><Link to="/walmart">Walmart Management</Link><Link to="/services">Account Recovery</Link><Link to="/services">Company Formation</Link><Link to="/services">Web &amp; Software Development</Link></div>
+        <div><h5>Services</h5><Link to="/services">E-Commerce Management</Link><Link to="/tiktok-shop">TikTok Shop Management</Link><Link to="/ebay">eBay Store Management</Link><Link to="/etsy">Etsy Store Management</Link><Link to="/walmart">Walmart Management</Link><Link to="/services">Account Recovery</Link><Link to="/services">Company Formation</Link><Link to="/services">Web &amp; Software Development</Link></div>
         <div><h5>Contact</h5><a href={'mailto:' + CONTACT.email}>{CONTACT.email}</a><a href={'https://wa.me/' + CONTACT.whatsapp}>{CONTACT.phone}</a><p>{CONTACT.city}</p>
           <div style={{ display: 'flex', gap: '4px 16px', flexWrap: 'wrap' }}>{[['Instagram', 'instagram'], ['TikTok', 'tiktok'], ['Facebook', 'facebook'], ['YouTube', 'youtube']].map(([n, k]) => <a key={k} href={CONTACT[k]} target="_blank" rel="noreferrer">{n}</a>)}</div></div>
       </div>
@@ -177,7 +179,7 @@ function Layout() {
         <Suspense fallback={<div style={{ minHeight: '100svh' }} />}>
           <Routes location={{ pathname }}>
             <Route path="/" element={<Home />} /><Route path="/about" element={<About />} /><Route path="/services" element={<ServicesPage />} />
-            <Route path="/team" element={<TeamPage />} /><Route path="/talk" element={<TalkPage />} /><Route path="/management" element={<ManagementPage />} /><Route path="/contact" element={<ContactPage />} /><Route path="/ebay" element={<EbayPage />} /><Route path="/etsy" element={<EtsyPage />} /><Route path="/walmart" element={<WalmartPage />} /><Route path="*" element={<NotFound />} />
+            <Route path="/team" element={<TeamPage />} /><Route path="/talk" element={<TalkPage />} /><Route path="/management" element={<ManagementPage />} /><Route path="/contact" element={<ContactPage />} /><Route path="/ebay" element={<EbayPage />} /><Route path="/etsy" element={<EtsyPage />} /><Route path="/walmart" element={<WalmartPage />} /><Route path="/tiktok-shop" element={<TikTokPage />} /><Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </motion.main>

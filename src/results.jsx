@@ -37,6 +37,7 @@ function Lightbox({ shot, onClose }) {
 
 // Platforms that have their own page: [link, the line shown next to the results].
 const EXPLORE = {
+  'TikTok Shop': ['/tiktok-shop', 'Explore our TikTok Shop portfolio and discover our management approach, business models, and documented store performance.'],
   eBay: ['/ebay', 'Explore our eBay portfolio to discover our business models, management strategies, and documented store performance.'],
   Etsy: ['/etsy', 'Explore our Etsy portfolio to discover our management strategies, store performance, and documented business results.'],
   Walmart: ['/walmart', 'Explore our Walmart portfolio to discover our business models, fulfillment strategies, and documented store performance.'],

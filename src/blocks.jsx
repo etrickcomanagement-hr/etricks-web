@@ -68,6 +68,8 @@ export function ServiceRows({ title = 'What we do', intro }) {
 }
 
 /* ---------- Platforms: stacking colour panels (Clay) ---------- */
+// Platforms that have their own page.
+const PLATFORM_PAGES = { 'TikTok Shop': '/tiktok-shop', eBay: '/ebay', Etsy: '/etsy', Walmart: '/walmart' }
 const TONES = ['t-lime', 't-tiktok', 't-paper', 't-etsy', 't-sage', 't-dark', 't-lime2']
 export function PlatformStack() {
   return (
@@ -88,8 +90,8 @@ export function PlatformStack() {
               </div>
               <div className="sp-r">
                 <ul>{d.points.map((pt, k) => <li key={pt}><i>{String(k + 1).padStart(2, '0')}</i>{pt}</li>)}</ul>
-                {['eBay', 'Etsy', 'Walmart'].includes(p)
-                  ? <Link to={'/' + p.toLowerCase()} className="sp-a">See our {p} service and results <i>↗</i></Link>
+                {PLATFORM_PAGES[p]
+                  ? <Link to={PLATFORM_PAGES[p]} className="sp-a">See our {p} service and results <i>↗</i></Link>
                   : <Link to="/contact" className="sp-a">Get help with {p} <i>↗</i></Link>}
               </div>
             </article>

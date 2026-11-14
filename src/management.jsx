@@ -8,7 +8,7 @@ import { BigLink } from './ui.jsx'
 import { MANAGE_PLATFORMS, WHY_TEAM, ACTIVITY } from './data.js'
 
 // Platforms that have their own page. A click on these rows opens that page.
-const PAGES = { eBay: '/ebay', Etsy: '/etsy', Walmart: '/walmart' }
+const PAGES = { 'TikTok Shop': '/tiktok-shop', eBay: '/ebay', Etsy: '/etsy', Walmart: '/walmart' }
 
 /* ---------- live-looking store activity card (sample) ---------- */
 function ActivityCard() {
