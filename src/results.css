@@ -53,3 +53,5 @@
 .rs-shots.whole .rs-shot{aspect-ratio:auto;display:flex;flex-direction:column}
 .rs-shots.whole .rs-shot img{height:auto;aspect-ratio:2/1;background:#fff}
 .rs-shots.whole .rs-shot.big img{aspect-ratio:2.25/1}
+/* a lone last preview in the two-column grid takes the full row */
+.rs-shots.whole .rs-shot:last-child:nth-child(even){grid-column:1/-1}

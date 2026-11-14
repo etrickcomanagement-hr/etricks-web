@@ -61,3 +61,6 @@
 @media(max-width:1000px){.et-regions{grid-template-columns:1fr 1fr}}
 @media(max-width:800px){.et-svc{grid-template-columns:1fr}}
 @media(max-width:520px){.et-regions{grid-template-columns:1fr}}
+/* Walmart page extras */
+.wm-k{margin:6px 0 -4px!important;color:var(--mute)!important}
+.wm-range{font-size:clamp(2.2rem,4.4vw,4rem)!important}

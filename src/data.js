@@ -319,6 +319,35 @@ export const RESULTS = [
       ['Shop rating', '4.5 / 5', 'From 81 reviews, with 14 repeat buyers and 58 shop followers.'],
     ],
     source: 'Etsy Shop Manager', period: 'January to November 2026 (shopper stats from Nov 2025)' },
+  { id: 'walmart-b', platform: 'Walmart', tag: 'USA · Walmart Marketplace', currency: '$', whole: true,
+    gmvLabel: 'Sales (GMV) in 2026', gmv: 222381, gmvNote: 'From 11,170 orders and 13,415 units sold.',
+    shots: [
+      ['/results/walmart-b-sales.webp', 'Sales in 2026: GMV, units, orders and average order value'],
+      ['/results/walmart-b-payout.webp', 'Payout for 17 to 31 October'],
+      ['/results/walmart-b-balance.webp', 'Open balance for 31 October to 14 November'],
+      ['/results/walmart-b-home.webp', 'Seller Center home'],
+      ['/results/walmart-b-performance.webp', 'Performance standards'],
+    ],
+    stats: [['Orders', '11,170'], ['Units sold', '13,415'], ['Average order', '$16.58'], ['Account rating', '4.32']],
+    highlights: [
+      ['Paid out, 17 to 31 Oct', '$12,019', 'A further $9,221 is the open balance for 31 Oct to 14 Nov.'],
+      ['Valid tracking', '99.2%', 'Walmart standard is 99% or above.'],
+      ['Cancellations', '0.2%', 'Walmart standard is 2% or below. Returns 0.8%, standard 6% or below.'],
+    ],
+    source: 'Walmart Seller Center', period: 'January to November 2026' },
+  { id: 'walmart-a', platform: 'Walmart', tag: 'USA · Walmart Marketplace', currency: '$', whole: true,
+    gmvLabel: 'Current account balance', gmv: 5630, gmvNote: 'With 12 orders today and an account rating of 5.00.',
+    shots: [
+      ['/results/walmart-a-home.webp', 'Seller Center home'],
+      ['/results/walmart-a-performance.webp', 'Performance standards'],
+    ],
+    stats: [['Account rating', '5.00'], ['Seller response', '100%'], ['Valid tracking', '99.5%'], ['Cancellations', '0.1%']],
+    highlights: [
+      ['Seller response', '100.0%', 'Walmart standard is 95% or above.'],
+      ['Returns', '0.5%', 'Walmart standard is 6% or below.'],
+      ['Negative feedback', '0.1%', 'Walmart standard is 2% or below.'],
+    ],
+    source: 'Walmart Seller Center', period: 'November 2026' },
 ]
 
 export const FAQS = [

@@ -88,7 +88,7 @@ export function PlatformStack() {
               </div>
               <div className="sp-r">
                 <ul>{d.points.map((pt, k) => <li key={pt}><i>{String(k + 1).padStart(2, '0')}</i>{pt}</li>)}</ul>
-                {p === 'eBay' || p === 'Etsy'
+                {['eBay', 'Etsy', 'Walmart'].includes(p)
                   ? <Link to={'/' + p.toLowerCase()} className="sp-a">See our {p} service and results <i>↗</i></Link>
                   : <Link to="/contact" className="sp-a">Get help with {p} <i>↗</i></Link>}
               </div>
