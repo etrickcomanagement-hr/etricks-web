@@ -64,3 +64,6 @@
 /* Walmart page extras */
 .wm-k{margin:6px 0 -4px!important;color:var(--mute)!important}
 .wm-range{font-size:clamp(2.2rem,4.4vw,4rem)!important}
+.eb-explore{font-weight:500;border-bottom:1px solid currentColor;padding-bottom:2px}
+.eb-explore i{font-style:normal}
+.eb-close p:has(.eb-explore){opacity:1}

@@ -170,6 +170,7 @@ export function EbayPage() {
           <h3 className="serif">Grow your eBay business with eTricks.</h3>
           <p>Whether you’re starting a new eBay store, managing an established account, or planning to expand into additional markets, eTricks provides the expertise and operational support to help you develop your business.</p>
           <p>With the right investment, suitable business model, and consistent management, we aim to turn eBay into a structured and sustainable revenue channel.</p>
+          <p><a href="#ebay-results" className="eb-explore">Explore our eBay portfolio to discover our business models, management strategies, and documented store performance. <i>↑</i></a></p>
         </div></Reveal>
       </div></section>
 

@@ -129,6 +129,10 @@ export function EtsyPage() {
           <Reveal><p>We combine dedicated eCommerce teams, structured store management, and transparent client reporting to help businesses manage their Etsy operations efficiently.</p></Reveal>
           <Reveal delay={.1}><p>From store setup to daily operations and performance optimization, our goal is to provide a reliable management experience focused on long-term growth.</p></Reveal>
         </div>
+        <Reveal><div className="eb-close">
+          <h3 className="serif">Build your Etsy business with eTricks.</h3>
+          <p><a href="#etsy-results" className="eb-explore">Explore our portfolio to discover our management strategies, store performance, and documented business results. <i>↑</i></a></p>
+        </div></Reveal>
       </div></section>
 
       <BigLink lead="Build your Etsy business with eTricks." label="Let's talk" />

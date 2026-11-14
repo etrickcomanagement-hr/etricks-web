@@ -166,6 +166,7 @@ export function WalmartPage() {
         <Reveal><div className="eb-close">
           <h3 className="serif">Grow your Walmart business with eTricks.</h3>
           <p>Whether you’re launching a new Walmart Marketplace store or looking to improve an existing operation, eTricks provides the management expertise and operational support needed to develop your business.</p>
+          <p><a href="#walmart-results" className="eb-explore">Explore our Walmart portfolio to discover our business models, fulfillment strategies, and documented store performance. <i>↑</i></a></p>
         </div></Reveal>
       </div></section>
 
