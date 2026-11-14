@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { m as motion, animate, useInView } from 'framer-motion'
+import { m as motion, animate, useInView, AnimatePresence } from 'framer-motion'
 import { Reveal, Words, ease } from './ui.jsx'
 import { RESULTS } from './data.js'
 import { PlatformLogo } from './logos.jsx'
@@ -17,28 +17,32 @@ function Money({ to, prefix = '£' }) {
   return <b ref={ref}>{prefix}{v.toLocaleString('en-GB')}</b>
 }
 
-/* redrawn sales trend: a simple line + soft fill */
-function Trend({ points, id }) {
-  const W = 600, H = 150, max = Math.max(...points)
-  const xy = points.map((p, i) => [(i / (points.length - 1)) * W, H - 8 - (p / max) * (H - 24)])
-  const line = xy.map(([x, y], i) => (i ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1)).join(' ')
+/* full-size view of one dashboard screenshot */
+function Lightbox({ shot, onClose }) {
+  useEffect(() => {
+    const k = (e) => e.key === 'Escape' && onClose()
+    window.addEventListener('keydown', k)
+    window.__lenis && window.__lenis.stop()
+    return () => { window.removeEventListener('keydown', k); window.__lenis && window.__lenis.start() }
+  }, [onClose])
   return (
-    <svg className="rs-trend" viewBox={'0 0 ' + W + ' ' + H} preserveAspectRatio="none" aria-hidden="true">
-      <defs><linearGradient id={id} x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#b6ff00" stopOpacity=".32" /><stop offset="1" stopColor="#b6ff00" stopOpacity="0" /></linearGradient></defs>
-      <motion.path d={line + ' L' + W + ' ' + H + ' L0 ' + H + ' Z'} fill={'url(#' + id + ')'} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1.2, delay: .9 }} />
-      <motion.path d={line} fill="none" stroke="#b6ff00" strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" vectorEffect="non-scaling-stroke"
-        initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 2, ease: [.76, 0, .24, 1] }} />
-    </svg>
+    <motion.div className="rs-lb" role="dialog" aria-modal="true" aria-label={shot[1]} onClick={onClose} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .25 }}>
+      <motion.figure onClick={(e) => e.stopPropagation()} initial={{ scale: .94, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: .96 }} transition={{ duration: .35, ease }}>
+        <img src={shot[0]} alt={shot[1]} />
+        <figcaption><span>{shot[1]}</span><button onClick={onClose} aria-label="Close">×</button></figcaption>
+      </motion.figure>
+    </motion.div>
   )
 }
 
 export function Results() {
+  const [open, setOpen] = useState(null)
   return (
     <section className="section rs"><div className="wrap">
       <div className="sec-head">
         <p className="mono-s">Results</p>
         <h2 className="serif h2"><Words text="Real accounts. Real numbers." em={['numbers.']} /></h2>
-        <Reveal delay={.1}><p className="lead rs-lead">Figures taken from the seller dashboards of stores our team manages. Client names stay private.</p></Reveal>
+        <Reveal delay={.1}><p className="lead rs-lead">Figures and screenshots taken from the seller dashboards of stores our team manages. Client names stay private.</p></Reveal>
       </div>
       <div className="rs-grid">
         {RESULTS.map((r, i) => (
@@ -52,7 +56,14 @@ export function Results() {
               <div className="rs-big serif"><Money to={r.gmv} />{r.gmvUp && <em>▲ {r.gmvUp}</em>}</div>
               {r.gmvNote && <small>{r.gmvNote}</small>}
             </div>
-            <Trend points={r.trend} id={'rs-g-' + r.id} />
+            <div className="rs-shots">
+              {r.shots.map((sh, k) => (
+                <button key={sh[0]} className={'rs-shot' + (k === 0 ? ' big' : '')} onClick={() => setOpen(sh)} aria-label={'View screenshot: ' + sh[1]}>
+                  <img src={sh[0]} alt={sh[1]} loading="lazy" decoding="async" />
+                  <span>{sh[1]} <i>⤢</i></span>
+                </button>
+              ))}
+            </div>
             <div className="rs-stats">
               {r.stats.map(([l, v]) => <div key={l}><b>{v}</b><span>{l}</span></div>)}
             </div>
@@ -63,6 +74,7 @@ export function Results() {
           </Reveal>
         ))}
       </div>
+      <AnimatePresence>{open && <Lightbox shot={open} onClose={() => setOpen(null)} />}</AnimatePresence>
     </div></section>
   )
 }
