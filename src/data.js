@@ -229,6 +229,31 @@ export const TEAM = [
     talkAbout: ['What to expect when you start with eTricks', 'Your store updates, reports, and next steps', 'Questions, concerns, or feedback about your account'] },
 ]
 
+// Results: real figures from the seller dashboards of accounts we manage. One entry per account.
+// Add a new account by copying an entry. trend = rough shape of the sales chart (any numbers, highest = top).
+export const RESULTS = [
+  { id: 'tts-b', platform: 'TikTok Shop', tag: 'UK seller · Food & Beverages',
+    gmvLabel: 'Sales (GMV) in 6 months', gmv: 129639, gmvUp: '102.86%', gmvNote: 'Compared with the six months before.',
+    trend: [28, 34, 72, 48, 44, 56, 50, 62, 58, 76, 36, 24, 20, 16, 12, 10, 14, 22, 30, 26, 34, 30, 40, 36, 44, 62, 36],
+    stats: [['Orders', '10,071'], ['Customers', '9,984'], ['Live products', '883'], ['Reviews', '1,396']],
+    highlights: [
+      ['Last 28 days', '£21,086', 'Up 72.3%, with 37,632 shop visitors.'],
+      ['Orders growth', '+112.29%', 'Six months compared with the six months before.'],
+      ['Account health', 'Healthy', 'Rating 348. Late-dispatch rate 0%.'],
+    ],
+    source: 'TikTok Shop Seller Centre', period: '11 May to 11 Nov 2026' },
+  { id: 'tts-a', platform: 'TikTok Shop', tag: 'UK seller · Food & Beverages',
+    gmvLabel: 'Sales (GMV) in 6 months', gmv: 40232, gmvUp: '4.1%', gmvNote: 'Compared with the six months before.',
+    trend: [30, 36, 46, 34, 52, 30, 56, 36, 44, 30, 58, 24, 6, 4, 5, 4, 6, 5, 8, 10, 30, 26, 40, 52, 64, 100, 58],
+    stats: [['Orders', '3,916'], ['Customers', '3,882'], ['Live products', '812'], ['Reviews', '1,023']],
+    highlights: [
+      ['Last 30 days', '£15,646', 'Up 299.85% on the 30 days before, from 1,245 orders.'],
+      ['Shop performance score', '4.1 / 5', 'Better than 79% of peers in the category.'],
+      ['Account health', 'Healthy', 'Seller-fault cancellation rate 0.89% (target under 2.5%).'],
+    ],
+    source: 'TikTok Shop Seller Centre', period: '11 May to 11 Nov 2026' },
+]
+
 export const FAQS = [
   ['What can eTricks help me with?', 'Running your online store day to day, recovering suspended accounts, setting up a company, building custom software, web development and marketing. If you are not sure which you need, we will work it out with you.'],
   ['Do you work with new sellers or established brands?', 'Both. Some clients are launching their first store, others are running several and need dependable hands. We start by learning where you are.'],

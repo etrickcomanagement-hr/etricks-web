@@ -6,6 +6,7 @@ import { LogoMarquee, Rotator, LogoRow } from './logos.jsx'
 import { TalkSection } from './talk.jsx'
 import GiantMarquee from './GiantMarquee.jsx'
 import { GlobalReach } from './globalreach.jsx'
+import { Results } from './results.jsx'
 import { Faq, ContactBox } from './sections.jsx'
 import { Statement, ServiceRows, PlatformStack, ProcessRows, Promises, TeamHover } from './blocks.jsx'
 
@@ -41,6 +42,7 @@ export function Home() {
       <TalkSection compact />
       <ServiceRows />
       <PlatformStack />
+      <Results />
       <ProcessRows />
       <Promises />
       <GlobalReach />

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Results } from './results.jsx'
 import { m as motion, AnimatePresence } from 'framer-motion'
 import { Link, Words, Reveal, Magnetic, ease } from './ui.jsx'
 import { PlatformLogo } from './logos.jsx'
@@ -100,6 +101,7 @@ export function ManagementPage() {
         </div>
       </div></section>
 
+      <Results />
       <Faq />
       <BigLink lead="Want a team to run your store?" label="Let's talk" />
     </>
