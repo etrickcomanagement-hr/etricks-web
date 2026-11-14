@@ -55,3 +55,12 @@
 .rs-shots.whole .rs-shot.big img{aspect-ratio:2.25/1}
 /* a lone last preview in the two-column grid takes the full row */
 .rs-shots.whole .rs-shot:last-child:nth-child(even){grid-column:1/-1}
+/* line under the cards that opens the platform's own page */
+.rs-explore{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(14px,3vw,36px);align-items:center;margin-top:20px;padding:clamp(18px,2.2vw,28px) clamp(20px,2.6vw,38px);border:1px solid rgba(182,255,0,.35);border-radius:clamp(20px,2.4vw,30px);background:radial-gradient(ellipse at 0% 50%,rgba(182,255,0,.1),transparent 60%);transition:border-color .3s,background .3s}
+.rs-explore:hover{border-color:var(--lime);background:rgba(182,255,0,.08)}
+.rs-explore-l{font-size:1.6rem;font-weight:600;letter-spacing:-.03em;display:inline-flex}
+.rs-explore-t{color:#c4c8bb;line-height:1.5;max-width:70ch}
+.rs-explore-a{display:inline-flex;gap:10px;align-items:center;white-space:nowrap;padding:12px 20px;border-radius:999px;background:var(--lime);color:#050505;font-weight:600;transition:gap .3s}
+.rs-explore:hover .rs-explore-a{gap:16px}
+.rs-explore-a i{font-style:normal}
+@media(max-width:900px){.rs-explore{grid-template-columns:1fr;justify-items:start}}

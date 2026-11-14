@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { m as motion, animate, useInView, AnimatePresence } from 'framer-motion'
-import { Reveal, Words, ease } from './ui.jsx'
+import { Reveal, Words, Link, ease } from './ui.jsx'
 import { RESULTS } from './data.js'
 import { PlatformLogo } from './logos.jsx'
 import './results.css'
@@ -33,6 +33,13 @@ function Lightbox({ shot, onClose }) {
       </motion.figure>
     </motion.div>
   )
+}
+
+// Platforms that have their own page: [link, the line shown next to the results].
+const EXPLORE = {
+  eBay: ['/ebay', 'Explore our eBay portfolio to discover our business models, management strategies, and documented store performance.'],
+  Etsy: ['/etsy', 'Explore our Etsy portfolio to discover our management strategies, store performance, and documented business results.'],
+  Walmart: ['/walmart', 'Explore our Walmart portfolio to discover our business models, fulfillment strategies, and documented store performance.'],
 }
 
 // platform = show only that platform (used on a platform's own page). Without it, tabs let the visitor switch.
@@ -88,6 +95,13 @@ export function Results({ platform, eyebrow = 'Results', title = 'Real accounts.
           </Reveal>
         ))}
       </div>
+      {!platform && EXPLORE[active] && (
+        <Link to={EXPLORE[active][0]} className="rs-explore" key={'x' + active}>
+          <span className="rs-explore-l"><PlatformLogo name={active} /></span>
+          <span className="rs-explore-t">{EXPLORE[active][1]}</span>
+          <span className="rs-explore-a">Explore our {active} portfolio <i>↗</i></span>
+        </Link>
+      )}
       <AnimatePresence>{open && <Lightbox shot={open} onClose={() => setOpen(null)} />}</AnimatePresence>
     </div></section>
   )
