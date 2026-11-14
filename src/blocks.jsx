@@ -32,7 +32,7 @@ export function ServiceRows({ title = 'What we do', intro }) {
     <section className="section"><div className="wrap">
       <div className="sec-head">
         <p className="mono-s">(02) {title}</p>
-        <h2 className="serif h2"><Words text={intro || 'Six ways we move your store forward.'} em={['forward.', 'all.']} /></h2>
+        <h2 className="serif h2"><Words text={intro || 'Six ways we move your business forward.'} em={['forward.', 'all.']} /></h2>
       </div>
       <div className="rows">
         {SERVICES.map((s, i) => (
