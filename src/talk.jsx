@@ -71,6 +71,8 @@ function BookingDialog({ onClose }) {
     e.preventDefault()
     const d = Object.fromEntries(new FormData(e.target))
     if (d.website) return
+    if (Date.now() - (window.__etSent || 0) < 30000) { setState('error'); return } // one message per 30s
+    window.__etSent = Date.now()
     setState('sending')
     try {
       const r = await fetch('https://formsubmit.co/ajax/' + CONTACT.email, {
@@ -124,10 +126,10 @@ function BookingDialog({ onClose }) {
             ) : (
               <form onSubmit={submit} className="dlg-form">
                 <p className="dlg-s">{fmtLong(day)} · {slot} · {BOOKING.tz}. <button type="button" className="lnk" onClick={() => setStep(1)}>Change</button></p>
-                <div className="f"><label htmlFor="b-name">Full name *</label><input ref={first} id="b-name" name="name" required placeholder="Your full name" autoComplete="name" /></div>
-                <div className="f"><label htmlFor="b-email">Email address *</label><input id="b-email" name="email" type="email" required placeholder="Your email address" autoComplete="email" /></div>
-                <div className="f"><label htmlFor="b-phone">Phone / WhatsApp (optional)</label><input id="b-phone" name="phone" type="tel" placeholder="Your phone number" autoComplete="tel" /></div>
-                <div className="f"><label htmlFor="b-msg">Anything we should know? (optional)</label><textarea id="b-msg" name="msg" placeholder="Your store, platform or question" style={{ minHeight: 80 }} /></div>
+                <div className="f"><label htmlFor="b-name">Full name *</label><input ref={first} id="b-name" name="name" required maxLength={80} placeholder="Your full name" autoComplete="name" /></div>
+                <div className="f"><label htmlFor="b-email">Email address *</label><input id="b-email" name="email" type="email" required maxLength={120} placeholder="Your email address" autoComplete="email" /></div>
+                <div className="f"><label htmlFor="b-phone">Phone / WhatsApp (optional)</label><input id="b-phone" name="phone" type="tel" maxLength={25} pattern="[0-9+() -]{6,25}" placeholder="Your phone number" autoComplete="tel" /></div>
+                <div className="f"><label htmlFor="b-msg">Anything we should know? (optional)</label><textarea id="b-msg" name="msg" maxLength={2000} placeholder="Your store, platform or question" style={{ minHeight: 80 }} /></div>
                 <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }} />
                 <div className="dlg-f">
                   <span className="note">Your details are only used to arrange the call.</span>

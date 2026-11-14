@@ -40,6 +40,8 @@ export function ContactBox() {
     const form = e.target
     const d = Object.fromEntries(new FormData(form))
     if (d.website) return // honeypot
+    if (Date.now() - (window.__etSent || 0) < 30000) { setState('error'); return } // one message per 30s
+    window.__etSent = Date.now()
     setState('sending')
     try {
       const r = await fetch('https://formsubmit.co/ajax/' + CONTACT.email, {
@@ -70,10 +72,10 @@ export function ContactBox() {
       </div>
       <Reveal delay={.1}>
         <form onSubmit={submit} className="cform">
-          <div className="f"><label htmlFor="c-name">Full name *</label><input id="c-name" name="name" required placeholder="Your full name" autoComplete="name" /></div>
-          <div className="f"><label htmlFor="c-email">Email address *</label><input id="c-email" name="email" type="email" required placeholder="Your email address" autoComplete="email" /></div>
-          <div className="f full"><label htmlFor="c-phone">Phone number (optional)</label><input id="c-phone" name="phone" type="tel" placeholder="Your phone number" autoComplete="tel" /></div>
-          <div className="f full"><label htmlFor="c-msg">Tell us about your project *</label><textarea id="c-msg" name="msg" required placeholder="Your goals, challenges or the support you're looking for..." /></div>
+          <div className="f"><label htmlFor="c-name">Full name *</label><input id="c-name" name="name" required maxLength={80} placeholder="Your full name" autoComplete="name" /></div>
+          <div className="f"><label htmlFor="c-email">Email address *</label><input id="c-email" name="email" type="email" required maxLength={120} placeholder="Your email address" autoComplete="email" /></div>
+          <div className="f full"><label htmlFor="c-phone">Phone number (optional)</label><input id="c-phone" name="phone" type="tel" maxLength={25} pattern="[0-9+() -]{6,25}" placeholder="Your phone number" autoComplete="tel" /></div>
+          <div className="f full"><label htmlFor="c-msg">Tell us about your project *</label><textarea id="c-msg" name="msg" maxLength={2000} required placeholder="Your goals, challenges or the support you're looking for..." /></div>
           <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }} />
           <p className="note full">We'll use your details to respond to your enquiry.</p>
           <div className="full">
