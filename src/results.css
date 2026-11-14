@@ -64,3 +64,11 @@
 .rs-explore:hover .rs-explore-a{gap:16px}
 .rs-explore-a i{font-style:normal}
 @media(max-width:900px){.rs-explore{grid-template-columns:1fr;justify-items:start}}
+/* Our Team Work page */
+.wk-jump{padding-bottom:10px}
+.wk-jump-in{display:flex;gap:10px;flex-wrap:wrap}
+.wk-jump-in a{display:inline-flex;align-items:center;gap:12px;padding:12px 20px;border-radius:999px;border:1px solid var(--line);font-weight:600;font-size:1.05rem;transition:border-color .3s,background .3s}
+.wk-jump-in a:hover{border-color:var(--lime);background:rgba(182,255,0,.08)}
+.wk-jump-in small{font-family:var(--mono);font-weight:400;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.wk-sec{scroll-margin-top:90px}
+.wk-sec+.wk-sec .rs{padding-top:0}

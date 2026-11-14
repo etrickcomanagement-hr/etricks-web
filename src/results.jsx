@@ -44,7 +44,7 @@ const EXPLORE = {
 }
 
 // platform = show only that platform (used on a platform's own page). Without it, tabs let the visitor switch.
-export function Results({ platform, eyebrow = 'Results', title = 'Real accounts. Real numbers.', em = ['numbers.'] }) {
+export function Results({ platform, explore, eyebrow = 'Results', title = 'Real accounts. Real numbers.', em = ['numbers.'] }) {
   const [open, setOpen] = useState(null)
   const platforms = [...new Set(RESULTS.map((r) => r.platform))]
   const [tab, setTab] = useState(platforms[0])
@@ -96,7 +96,7 @@ export function Results({ platform, eyebrow = 'Results', title = 'Real accounts.
           </Reveal>
         ))}
       </div>
-      {!platform && EXPLORE[active] && (
+      {(!platform || explore) && EXPLORE[active] && (
         <Link to={EXPLORE[active][0]} className="rs-explore" key={'x' + active}>
           <span className="rs-explore-l"><PlatformLogo name={active} /></span>
           <span className="rs-explore-t">{EXPLORE[active][1]}</span>

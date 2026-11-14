@@ -18,6 +18,7 @@ const EbayPage = lazy(() => import('./ebay.jsx').then((m) => ({ default: m.EbayP
 const EtsyPage = lazy(() => import('./etsy.jsx').then((m) => ({ default: m.EtsyPage })))
 const WalmartPage = lazy(() => import('./walmart.jsx').then((m) => ({ default: m.WalmartPage })))
 const TikTokPage = lazy(() => import('./tiktok.jsx').then((m) => ({ default: m.TikTokPage })))
+const WorkPage = lazy(() => importInner().then((m) => ({ default: m.WorkPage })))
 const NotFound = lazy(() => importInner().then((m) => ({ default: m.NotFound })))
 const ContactPage = lazy(() => importInner().then((m) => ({ default: m.ContactPage })))
 const TalkPage = lazy(() => importTalk().then((m) => ({ default: m.TalkPage })))
@@ -33,6 +34,7 @@ const SEO = {
   '/etsy': ['Etsy Store Management | eTricks', 'Etsy store setup, management and growth: product research, supplier coordination, two business models and documented store performance.'],
   '/walmart': ['Walmart Marketplace Management | eTricks', 'Walmart US Marketplace management: product sourcing, 3PL and WFS fulfillment, two business models and documented store performance.'],
   '/tiktok-shop': ['TikTok Shop Management | eTricks', 'TikTok Shop management for UK and USA sellers: product research, supplier coordination, creator marketing, four business models and documented store performance.'],
+  '/our-team-work': ['Our Team Work | eTricks', 'Portfolio of stores managed by eTricks on TikTok Shop, eBay, Etsy and Walmart, with real dashboard figures and screenshots.'],
   '/about': ['About | eTricks', 'eTricks is an eCommerce agency based in Multan, Pakistan, working with sellers in the UK, US, Australia, Canada and Saudi Arabia.'],
   '/team': ['Team | eTricks', 'Meet the people behind eTricks and what each of them looks after.'],
   '/talk': ['Book a Call | eTricks', 'Book a free 30-minute call with the eTricks team about your store.'],
@@ -53,7 +55,7 @@ function useSeo(pathname) {
   }, [pathname])
 }
 
-const NAV = [['/', 'Home'], ['/services', 'Services'], ['/management', 'Management'], ['/about', 'About'], ['/team', 'Team'], ['/talk', 'Book a call'], ['/contact', 'Contact']]
+const NAV = [['/', 'Home'], ['/services', 'Services'], ['/management', 'Management'], ['/our-team-work', 'Our Team Work'], ['/about', 'About'], ['/team', 'Team'], ['/talk', 'Book a call'], ['/contact', 'Contact']]
 
 function Nav() {
   const [sc, setSc] = useState(false), [open, setOpen] = useState(false)
@@ -179,7 +181,7 @@ function Layout() {
         <Suspense fallback={<div style={{ minHeight: '100svh' }} />}>
           <Routes location={{ pathname }}>
             <Route path="/" element={<Home />} /><Route path="/about" element={<About />} /><Route path="/services" element={<ServicesPage />} />
-            <Route path="/team" element={<TeamPage />} /><Route path="/talk" element={<TalkPage />} /><Route path="/management" element={<ManagementPage />} /><Route path="/contact" element={<ContactPage />} /><Route path="/ebay" element={<EbayPage />} /><Route path="/etsy" element={<EtsyPage />} /><Route path="/walmart" element={<WalmartPage />} /><Route path="/tiktok-shop" element={<TikTokPage />} /><Route path="*" element={<NotFound />} />
+            <Route path="/team" element={<TeamPage />} /><Route path="/talk" element={<TalkPage />} /><Route path="/management" element={<ManagementPage />} /><Route path="/contact" element={<ContactPage />} /><Route path="/ebay" element={<EbayPage />} /><Route path="/etsy" element={<EtsyPage />} /><Route path="/walmart" element={<WalmartPage />} /><Route path="/tiktok-shop" element={<TikTokPage />} /><Route path="/our-team-work" element={<WorkPage />} /><Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </motion.main>

@@ -5,6 +5,8 @@ import { MarketsShowcase } from './showcase.jsx'
 import { Faq, ContactBox } from './sections.jsx'
 import { ServiceRows, PlatformStack, ProcessRows } from './blocks.jsx'
 import { TeamCards } from './teamprofile.jsx'
+import { Results } from './results.jsx'
+import { RESULTS } from './data.js'
 
 function PHero({ eyebrow, title, em, sub }) {
   return (
@@ -59,4 +61,22 @@ export function ContactPage() {
 }
 export function NotFound() {
   return (<><PHero eyebrow="404" title="This page does not exist." em={['exist.']} sub="The link may be old or mistyped. The home page is a good place to start again." /><BigLink lead="Back to the start" to="/" label="Go home" /></>)
+}
+// Our Team Work: every platform's portfolio on one page. New platforms appear here as soon as they are added to RESULTS in data.js.
+export function WorkPage() {
+  const platforms = [...new Set(RESULTS.map((r) => r.platform))]
+  return (
+    <>
+      <PHero eyebrow="Our team work" title="The stores we run, in numbers." em={['numbers.']} sub="Real figures and screenshots from the seller dashboards of accounts our team manages, platform by platform. Client names stay private." />
+      <section className="wrap wk-jump"><div className="wk-jump-in">
+        {platforms.map((pf) => <a key={pf} href={'#work-' + pf.toLowerCase().replace(/ /g, '-')}>{pf}<small>{RESULTS.filter((r) => r.platform === pf).length} accounts</small></a>)}
+      </div></section>
+      {platforms.map((pf, i) => (
+        <div key={pf} id={'work-' + pf.toLowerCase().replace(/ /g, '-')} className="wk-sec">
+          <Results platform={pf} explore eyebrow={'(0' + (i + 1) + ') ' + pf + ' portfolio'} title={pf + ' store performance.'} em={['performance.']} />
+        </div>
+      ))}
+      <BigLink lead="Want results like these for your store?" label="Let's talk" />
+    </>
+  )
 }
