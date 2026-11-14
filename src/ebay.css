@@ -1,0 +1,50 @@
+/* ===== eBay service page ===== */
+.eb-hero .lead{max-width:62ch}
+.eb-logo{font-size:clamp(2.6rem,5vw,4.4rem);font-weight:600;letter-spacing:-.04em;line-height:1;margin:6px 0 18px;display:flex}
+.eb-cta{display:flex;gap:26px;align-items:center;flex-wrap:wrap;margin-top:34px}
+.eb-lead{margin-top:22px;max-width:60ch}
+.eb-markets{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.eb-market{display:grid;gap:26px;align-content:space-between;padding:18px 16px;min-height:130px;border:1px solid var(--line);border-radius:18px;transition:border-color .3s,background .3s,transform .4s}
+.eb-market:hover{border-color:var(--lime);background:rgba(182,255,0,.06);transform:translateY(-4px)}
+.eb-market i,.eb-why-i i{font-style:normal;font-family:var(--mono);font-size:.72rem;color:var(--lime)}
+.eb-market b{font-weight:500;font-size:1.02rem;letter-spacing:-.02em;line-height:1.2}
+.eb-two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,60px);margin-top:34px;color:#c4c8bb;font-size:1.08rem;line-height:1.6}
+.eb-models,.eb-svc,.eb-invest{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.eb-model,.eb-svc-c{display:grid;gap:14px;align-content:start;padding:clamp(22px,2.8vw,40px);border:1px solid var(--line);border-radius:clamp(22px,2.6vw,34px);background:rgba(255,255,255,.025);transition:border-color .35s}
+.eb-model:hover,.eb-svc-c:hover{border-color:rgba(182,255,0,.45)}
+.eb-model .mono-s,.eb-svc-c .mono-s{margin:0;color:var(--lime)}
+.eb-model h3,.eb-svc-c h3{font-size:clamp(1.5rem,2.3vw,2.2rem);letter-spacing:-.03em;line-height:1.1}
+.eb-model p,.eb-inv p{color:#b9bdb0;line-height:1.6}
+.eb-strong{color:var(--text)!important;font-size:1.06rem}
+.eb-inv{display:grid;gap:16px;align-content:start;padding:clamp(24px,3vw,44px);border-radius:clamp(22px,2.6vw,34px);border:1px solid var(--line);background:rgba(255,255,255,.025)}
+.eb-inv .mono-s{margin:0}
+.eb-inv-n{display:grid;gap:2px}
+.eb-inv-n small{color:var(--mute);font-size:.9rem}
+.eb-inv-n b{font-weight:500;font-size:clamp(3rem,6vw,5.4rem);line-height:1;letter-spacing:-.04em}
+.eb-inv-lime{background:var(--lime);border-color:var(--lime);color:#050505}
+.eb-inv-lime p,.eb-inv-lime .eb-strong{color:#1a2200!important}
+.eb-inv-lime .mono-s,.eb-inv-lime small{color:#2c3a00}
+.eb-note{margin-top:18px;color:var(--mute);font-size:.95rem}
+.eb-roi{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,80px);align-items:center;margin-top:clamp(40px,6vw,80px);padding:clamp(24px,3.4vw,50px);border:1px solid rgba(182,255,0,.35);border-radius:clamp(22px,2.6vw,34px);background:radial-gradient(ellipse at 0% 0%,rgba(182,255,0,.12),transparent 60%)}
+.eb-roi-n{display:grid;gap:4px}
+.eb-roi-n .mono-s{margin:0 0 6px}
+.eb-roi-n b{font-weight:500;font-size:clamp(3.6rem,8vw,7.4rem);line-height:.95;letter-spacing:-.05em;color:var(--lime);white-space:nowrap}
+.eb-roi-n span{color:#c4c8bb}
+.eb-roi-t{display:grid;gap:14px;color:#c4c8bb;line-height:1.6}
+.eb-disc{padding:12px 16px;border-left:3px solid var(--lime);background:rgba(182,255,0,.06);border-radius:0 12px 12px 0;color:#d6dacc!important;font-size:.92rem;line-height:1.55}
+.eb-stab{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:start}
+.eb-list{list-style:none;margin:0 0 22px;padding:0;border-top:1px solid var(--line)}
+.eb-list li{display:flex;gap:14px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);font-size:1.08rem}
+.eb-list li i{font-style:normal;color:var(--lime);font-weight:700}
+.eb-p{color:#c4c8bb;line-height:1.6;margin-bottom:16px}
+.eb-svc-c ul{list-style:none;margin:0;padding:0;display:grid}
+.eb-svc-c li{padding:11px 0;border-top:1px solid var(--line);color:#d0d4c6}
+.eb-why{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.eb-why-i{display:grid;gap:22px;align-content:space-between;min-height:120px;padding:18px;border:1px solid var(--line);border-radius:18px;transition:border-color .3s,background .3s}
+.eb-why-i:hover{border-color:var(--lime);background:rgba(182,255,0,.05)}
+.eb-why-i b{font-weight:500;letter-spacing:-.02em;line-height:1.25}
+.eb-close{margin-top:clamp(30px,5vw,60px);padding:clamp(24px,3.4vw,50px);border-radius:clamp(22px,2.6vw,34px);background:var(--paper);color:var(--ink);display:grid;gap:14px}
+.eb-close h3{font-size:clamp(1.8rem,3.4vw,3.2rem);letter-spacing:-.03em;line-height:1.05}
+.eb-close p{max-width:70ch;line-height:1.6;opacity:.8}
+@media(max-width:1000px){.eb-markets{grid-template-columns:repeat(4,1fr)}.eb-why{grid-template-columns:1fr 1fr}}
+@media(max-width:800px){.eb-models,.eb-svc,.eb-invest,.eb-two,.eb-stab,.eb-roi{grid-template-columns:1fr}.eb-markets{grid-template-columns:1fr 1fr}.eb-market{min-height:96px;gap:14px}.eb-why-i{min-height:0}}

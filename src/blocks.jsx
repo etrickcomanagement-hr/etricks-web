@@ -88,7 +88,9 @@ export function PlatformStack() {
               </div>
               <div className="sp-r">
                 <ul>{d.points.map((pt, k) => <li key={pt}><i>{String(k + 1).padStart(2, '0')}</i>{pt}</li>)}</ul>
-                <Link to="/contact" className="sp-a">Get help with {p} <i>↗</i></Link>
+                {p === 'eBay'
+                  ? <Link to="/ebay" className="sp-a">See our eBay service and results <i>↗</i></Link>
+                  : <Link to="/contact" className="sp-a">Get help with {p} <i>↗</i></Link>}
               </div>
             </article>
           )

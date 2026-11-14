@@ -262,6 +262,35 @@ export const RESULTS = [
       ['Account health', 'Healthy', 'Seller-fault cancellation rate 0.89% (target under 2.5%).'],
     ],
     source: 'TikTok Shop Seller Centre', period: '11 May to 11 Nov 2026' },
+  // eBay screenshots are shown whole (whole: true = never cropped, even in the small previews).
+  { id: 'ebay-a', platform: 'eBay', tag: 'Australia · eBay store', currency: 'AU $', whole: true,
+    gmvLabel: 'Sales in the last 31 days', gmv: 5097, gmvUp: '777.3%', gmvNote: 'Compared with the period before.',
+    shots: [
+      ['/results/ebay-a-overview.webp', 'Seller Hub overview: listings, orders and sales'],
+      ['/results/ebay-a-performance.webp', 'Advertising, traffic, seller level and feedback'],
+      ['/results/ebay-a-payouts.webp', 'Payouts'],
+    ],
+    stats: [['Orders (90 days)', '360'], ['Sales (90 days)', 'AU $5,685'], ['Listing impressions', '854,278'], ['Feedback', '98.8%']],
+    highlights: [
+      ['Last 7 days', 'AU $3,633', 'Promoted listings brought AU $3,623 in ad sales at a 9.32 return on ad spend.'],
+      ['Seller level', 'Above Standard', 'eBay shows Top-rated Seller if the account were evaluated today.'],
+      ['Service metrics', '0.00%', 'Transaction defect rate and late shipment rate are both 0.00%.'],
+    ],
+    source: 'eBay Seller Hub', period: '13 Oct to 12 Nov 2026' },
+  { id: 'ebay-b', platform: 'eBay', tag: 'Australia · eBay store', currency: 'AU $', whole: true,
+    gmvLabel: 'Sales in the last 31 days', gmv: 3326, gmvUp: '620.3%', gmvNote: 'Compared with the period before.',
+    shots: [
+      ['/results/ebay-b-overview.webp', 'Seller Hub overview: listings, orders and sales'],
+      ['/results/ebay-b-performance.webp', 'Advertising, traffic, seller level and feedback'],
+      ['/results/ebay-b-payouts.webp', 'Payouts'],
+    ],
+    stats: [['Orders (90 days)', '234'], ['Sales (90 days)', 'AU $3,975'], ['Listing impressions', '444,759'], ['Feedback', '97.1%']],
+    highlights: [
+      ['Last 7 days', 'AU $1,940', 'Promoted listings brought AU $1,987 in ad sales at an 8.67 return on ad spend.'],
+      ['Traffic', '+118.7%', 'Listing impressions up 118.7% and page views up 136.6%.'],
+      ['Sales conversion rate', '5.0%', 'Up 1.6 points. Transaction defect rate 0.00%.'],
+    ],
+    source: 'eBay Seller Hub', period: '13 Oct to 12 Nov 2026' },
 ]
 
 export const FAQS = [

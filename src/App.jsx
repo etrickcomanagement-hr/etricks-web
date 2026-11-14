@@ -14,6 +14,7 @@ const Home = lazy(() => importHome().then((m) => ({ default: m.Home })))
 const About = lazy(() => importInner().then((m) => ({ default: m.About })))
 const ServicesPage = lazy(() => importInner().then((m) => ({ default: m.ServicesPage })))
 const TeamPage = lazy(() => importInner().then((m) => ({ default: m.TeamPage })))
+const EbayPage = lazy(() => import('./ebay.jsx').then((m) => ({ default: m.EbayPage })))
 const NotFound = lazy(() => importInner().then((m) => ({ default: m.NotFound })))
 const ContactPage = lazy(() => importInner().then((m) => ({ default: m.ContactPage })))
 const TalkPage = lazy(() => importTalk().then((m) => ({ default: m.TalkPage })))
@@ -25,6 +26,7 @@ const SEO = {
   '/': ['eTricks | We Launch, Scale & Fix Your E-Commerce Stores', 'eTricks is a Pakistan-based eCommerce agency. We launch, scale and fix online stores across Amazon, TikTok Shop, eBay, Etsy, Walmart, Shopify and Temu.'],
   '/services': ['Services | eTricks', 'E-commerce management, account recovery, company formation, software, web development and marketing from one team.'],
   '/management': ['E-Commerce Management | eTricks', 'Daily store management across Amazon, eBay, TikTok Shop, Etsy, Walmart, Shopify and Temu by a dedicated team.'],
+  '/ebay': ['eBay Store Management | eTricks', 'eBay marketplace management across seven markets: product sourcing, account management, four business models and documented store performance.'],
   '/about': ['About | eTricks', 'eTricks is an eCommerce agency based in Multan, Pakistan, working with sellers in the UK, US, Australia, Canada and Saudi Arabia.'],
   '/team': ['Team | eTricks', 'Meet the people behind eTricks and what each of them looks after.'],
   '/talk': ['Book a Call | eTricks', 'Book a free 30-minute call with the eTricks team about your store.'],
@@ -112,7 +114,7 @@ function Footer() {
       <div className="fgrid">
         <div><img src="/logo.webp" alt="eTricks" width="62" height="64" loading="lazy" decoding="async" style={{ height: 64, width: "auto", marginBottom: 18 }} /><p style={{ maxWidth: '34ch' }}>Based in Pakistan. Built for global eCommerce. We launch, scale and fix online stores.</p></div>
         <div><h5>Menu</h5>{NAV.map(([to, l]) => <Link key={to} to={to}>{l}</Link>)}</div>
-        <div><h5>Services</h5><Link to="/services">E-Commerce Management</Link><Link to="/services">Account Recovery</Link><Link to="/services">Company Formation</Link><Link to="/services">Web &amp; Software Development</Link></div>
+        <div><h5>Services</h5><Link to="/services">E-Commerce Management</Link><Link to="/ebay">eBay Store Management</Link><Link to="/services">Account Recovery</Link><Link to="/services">Company Formation</Link><Link to="/services">Web &amp; Software Development</Link></div>
         <div><h5>Contact</h5><a href={'mailto:' + CONTACT.email}>{CONTACT.email}</a><a href={'https://wa.me/' + CONTACT.whatsapp}>{CONTACT.phone}</a><p>{CONTACT.city}</p>
           <div style={{ display: 'flex', gap: '4px 16px', flexWrap: 'wrap' }}>{[['Instagram', 'instagram'], ['TikTok', 'tiktok'], ['Facebook', 'facebook'], ['YouTube', 'youtube']].map(([n, k]) => <a key={k} href={CONTACT[k]} target="_blank" rel="noreferrer">{n}</a>)}</div></div>
       </div>
@@ -171,7 +173,7 @@ function Layout() {
         <Suspense fallback={<div style={{ minHeight: '100svh' }} />}>
           <Routes location={{ pathname }}>
             <Route path="/" element={<Home />} /><Route path="/about" element={<About />} /><Route path="/services" element={<ServicesPage />} />
-            <Route path="/team" element={<TeamPage />} /><Route path="/talk" element={<TalkPage />} /><Route path="/management" element={<ManagementPage />} /><Route path="/contact" element={<ContactPage />} /><Route path="*" element={<NotFound />} />
+            <Route path="/team" element={<TeamPage />} /><Route path="/talk" element={<TalkPage />} /><Route path="/management" element={<ManagementPage />} /><Route path="/contact" element={<ContactPage />} /><Route path="/ebay" element={<EbayPage />} /><Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </motion.main>

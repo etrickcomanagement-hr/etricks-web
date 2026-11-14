@@ -35,17 +35,31 @@ function Lightbox({ shot, onClose }) {
   )
 }
 
-export function Results() {
+// platform = show only that platform (used on a platform's own page). Without it, tabs let the visitor switch.
+export function Results({ platform, eyebrow = 'Results', title = 'Real accounts. Real numbers.', em = ['numbers.'] }) {
   const [open, setOpen] = useState(null)
+  const platforms = [...new Set(RESULTS.map((r) => r.platform))]
+  const [tab, setTab] = useState(platforms[0])
+  const active = platform || tab
+  const list = RESULTS.filter((r) => r.platform === active)
   return (
     <section className="section rs"><div className="wrap">
       <div className="sec-head">
-        <p className="mono-s">Results</p>
-        <h2 className="serif h2"><Words text="Real accounts. Real numbers." em={['numbers.']} /></h2>
+        <p className="mono-s">{eyebrow}</p>
+        <h2 className="serif h2"><Words text={title} em={em} /></h2>
         <Reveal delay={.1}><p className="lead rs-lead">Figures and screenshots taken from the seller dashboards of stores our team manages. Client names stay private.</p></Reveal>
       </div>
-      <div className="rs-grid">
-        {RESULTS.map((r, i) => (
+      {!platform && platforms.length > 1 && (
+        <div className="rs-tabs" role="tablist" aria-label="Platform">
+          {platforms.map((pf) => (
+            <button key={pf} role="tab" aria-selected={tab === pf} className={'rs-tab' + (tab === pf ? ' on' : '')} onClick={() => setTab(pf)}>
+              <PlatformLogo name={pf} /><small>{RESULTS.filter((r) => r.platform === pf).length} accounts</small>
+            </button>
+          ))}
+        </div>
+      )}
+      <div className="rs-grid" key={active}>
+        {list.map((r, i) => (
           <Reveal key={r.id} delay={i * .12} className="rs-card">
             <div className="rs-top">
               <span className="rs-logo"><PlatformLogo name={r.platform} /></span>
@@ -53,10 +67,10 @@ export function Results() {
             </div>
             <div className="rs-main">
               <p className="mono-s">{r.gmvLabel}</p>
-              <div className="rs-big serif"><Money to={r.gmv} />{r.gmvUp && <em>▲ {r.gmvUp}</em>}</div>
+              <div className="rs-big serif"><Money to={r.gmv} prefix={r.currency || '£'} />{r.gmvUp && <em>▲ {r.gmvUp}</em>}</div>
               {r.gmvNote && <small>{r.gmvNote}</small>}
             </div>
-            <div className="rs-shots">
+            <div className={'rs-shots' + (r.whole ? ' whole' : '')}>
               {r.shots.map((sh, k) => (
                 <button key={sh[0]} className={'rs-shot' + (k === 0 ? ' big' : '')} onClick={() => setOpen(sh)} aria-label={'View screenshot: ' + sh[1]}>
                   <img src={sh[0]} alt={sh[1]} loading="lazy" decoding="async" />
