@@ -14,9 +14,36 @@ const Home = lazy(() => importHome().then((m) => ({ default: m.Home })))
 const About = lazy(() => importInner().then((m) => ({ default: m.About })))
 const ServicesPage = lazy(() => importInner().then((m) => ({ default: m.ServicesPage })))
 const TeamPage = lazy(() => importInner().then((m) => ({ default: m.TeamPage })))
+const NotFound = lazy(() => importInner().then((m) => ({ default: m.NotFound })))
 const ContactPage = lazy(() => importInner().then((m) => ({ default: m.ContactPage })))
 const TalkPage = lazy(() => importTalk().then((m) => ({ default: m.TalkPage })))
 const ManagementPage = lazy(() => importManagement().then((m) => ({ default: m.ManagementPage })))
+
+// Title and description for each page (shown in the browser tab and in search results).
+const SITE = 'https://etricks.co'
+const SEO = {
+  '/': ['eTricks | We Launch, Scale & Fix Your E-Commerce Stores', 'eTricks is a Pakistan-based eCommerce agency. We launch, scale and fix online stores across Amazon, TikTok Shop, eBay, Etsy, Walmart, Shopify and Temu.'],
+  '/services': ['Services | eTricks', 'E-commerce management, account recovery, company formation, software, web development and marketing from one team.'],
+  '/management': ['E-Commerce Management | eTricks', 'Daily store management across Amazon, eBay, TikTok Shop, Etsy, Walmart, Shopify and Temu by a dedicated team.'],
+  '/about': ['About | eTricks', 'eTricks is an eCommerce agency based in Multan, Pakistan, working with sellers in the UK, US, Australia, Canada and Saudi Arabia.'],
+  '/team': ['Team | eTricks', 'Meet the people behind eTricks and what each of them looks after.'],
+  '/talk': ['Book a Call | eTricks', 'Book a free 30-minute call with the eTricks team about your store.'],
+  '/contact': ['Contact | eTricks', 'Tell eTricks about your business and the support you need. Email, WhatsApp or the contact form.'],
+}
+function useSeo(pathname) {
+  useEffect(() => {
+    const known = SEO[pathname]
+    const [title, desc] = known || ['Page not found | eTricks', SEO['/'][1]]
+    document.title = title
+    const set = (sel, attr, val) => { const el = document.head.querySelector(sel); if (el) el.setAttribute(attr, val) }
+    const url = SITE + (pathname === '/' ? '/' : pathname)
+    set('meta[name="description"]', 'content', desc)
+    set('meta[property="og:title"]', 'content', title); set('meta[property="og:description"]', 'content', desc); set('meta[property="og:url"]', 'content', url)
+    set('meta[name="twitter:title"]', 'content', title); set('meta[name="twitter:description"]', 'content', desc)
+    set('link[rel="canonical"]', 'href', url)
+    set('meta[name="robots"]', 'content', known ? 'index, follow' : 'noindex')
+  }, [pathname])
+}
 
 const NAV = [['/', 'Home'], ['/services', 'Services'], ['/management', 'Management'], ['/about', 'About'], ['/team', 'Team'], ['/talk', 'Book a call'], ['/contact', 'Contact']]
 
@@ -30,7 +57,7 @@ function Nav() {
     <>
       <header className={'nav ' + (sc ? 'scrolled' : '')}>
         <button className="pillb" onClick={() => setOpen(!open)} aria-expanded={open}>{open ? 'Close' : 'Menu'}</button>
-        <Link to="/" className="brand" aria-label="eTricks home"><img src="/logo.webp" alt="eTricks" width="45" height="46" fetchpriority="high" decoding="async" /></Link>
+        <Link to="/" className="brand" aria-label="eTricks home"><img src="/logo.webp" alt="eTricks" width="45" height="46" fetchPriority="high" decoding="async" /></Link>
         <Link to="/talk" className="pillb lime">Book a call <span>↗</span></Link>
       </header>
       <AnimatePresence>
@@ -121,6 +148,7 @@ function Cursor() {
 function Layout() {
   const { pathname } = useLocation()
   const first = useRef(pathname)
+  useSeo(pathname)
   const { scrollYProgress } = useScroll()
   useEffect(() => {
     const l = new Lenis({ duration: 1.15, smoothWheel: true })
@@ -143,7 +171,7 @@ function Layout() {
         <Suspense fallback={<div style={{ minHeight: '100svh' }} />}>
           <Routes location={{ pathname }}>
             <Route path="/" element={<Home />} /><Route path="/about" element={<About />} /><Route path="/services" element={<ServicesPage />} />
-            <Route path="/team" element={<TeamPage />} /><Route path="/talk" element={<TalkPage />} /><Route path="/management" element={<ManagementPage />} /><Route path="/contact" element={<ContactPage />} /><Route path="*" element={<Home />} />
+            <Route path="/team" element={<TeamPage />} /><Route path="/talk" element={<TalkPage />} /><Route path="/management" element={<ManagementPage />} /><Route path="/contact" element={<ContactPage />} /><Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </motion.main>

@@ -57,3 +57,6 @@ export function TeamPage() {
 export function ContactPage() {
   return (<><PHero eyebrow="Contact" title="Let's talk about your business." em={['business.']} /><ContactBox /></>)
 }
+export function NotFound() {
+  return (<><PHero eyebrow="404" title="This page does not exist." em={['exist.']} sub="The link may be old or mistyped. The home page is a good place to start again." /><BigLink lead="Back to the start" to="/" label="Go home" /></>)
+}
