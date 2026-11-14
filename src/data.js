@@ -291,6 +291,34 @@ export const RESULTS = [
       ['Sales conversion rate', '5.0%', 'Up 1.6 points. Transaction defect rate 0.00%.'],
     ],
     source: 'eBay Seller Hub', period: '13 Oct to 12 Nov 2026' },
+  { id: 'etsy-a', platform: 'Etsy', tag: 'Etsy shop', currency: 'AU $', whole: true,
+    gmvLabel: 'Sales this year (Jan to Nov 2026)', gmv: 16322, gmvNote: 'Net profit on Etsy for the year: AU $13,603, after fees and marketing.',
+    shots: [
+      ['/results/etsy-a-finance.webp', 'Payment account: sales, fees and net profit this year'],
+      ['/results/etsy-a-stats.webp', 'All-time shop stats'],
+      ['/results/etsy-a-dashboard.webp', 'Shop Manager dashboard'],
+    ],
+    stats: [['Sales', '583'], ['Shop rating', '4.4 / 5'], ['Visits (all time)', '14.9K'], ['Views (all time)', '28.8K']],
+    highlights: [
+      ['Net profit this year', 'AU $13,603', 'From AU $16,322 in sales, with AU $2,118 in fees and AU $602 in marketing.'],
+      ['Orders (all time)', '526', 'All-time revenue of USD 7,681 on the shop stats page.'],
+      ['Shop rating', '4.4 / 5', 'From 89 reviews, with 10 active listings.'],
+    ],
+    source: 'Etsy Shop Manager', period: 'January to November 2026' },
+  { id: 'etsy-b', platform: 'Etsy', tag: 'Etsy shop', currency: 'AU $', whole: true,
+    gmvLabel: 'Sales this year (Jan to Nov 2026)', gmv: 15303, gmvNote: 'Net profit on Etsy for the year: AU $12,661, after fees and marketing.',
+    shots: [
+      ['/results/etsy-b-finance.webp', 'Payment account: sales, fees and net profit this year'],
+      ['/results/etsy-b-shoppers.webp', 'Shopper stats'],
+      ['/results/etsy-b-dashboard.webp', 'Shop Manager dashboard'],
+    ],
+    stats: [['Sales', '644'], ['Shop rating', '4.5 / 5'], ['Favourites', '707'], ['Cities reached', '531']],
+    highlights: [
+      ['Net profit this year', 'AU $12,661', 'From AU $15,303 in sales, with AU $2,186 in fees and AU $456 in marketing.'],
+      ['Reach', '27 countries', 'Orders shipped to 531 cities in 27 countries.'],
+      ['Shop rating', '4.5 / 5', 'From 81 reviews, with 14 repeat buyers and 58 shop followers.'],
+    ],
+    source: 'Etsy Shop Manager', period: 'January to November 2026 (shopper stats from Nov 2025)' },
 ]
 
 export const FAQS = [

@@ -48,3 +48,16 @@
 .eb-close p{max-width:70ch;line-height:1.6;opacity:.8}
 @media(max-width:1000px){.eb-markets{grid-template-columns:repeat(4,1fr)}.eb-why{grid-template-columns:1fr 1fr}}
 @media(max-width:800px){.eb-models,.eb-svc,.eb-invest,.eb-two,.eb-stab,.eb-roi{grid-template-columns:1fr}.eb-markets{grid-template-columns:1fr 1fr}.eb-market{min-height:96px;gap:14px}.eb-why-i{min-height:0}}
+/* Etsy page extras */
+.et-regions{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.et-regions .eb-why-i div{display:grid;gap:6px}
+.et-regions .eb-why-i span{color:#b9bdb0;font-size:.92rem;line-height:1.45}
+.et-roi2{display:grid;gap:16px}
+.et-lime{color:var(--lime)}
+.et-svc{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(20px,4vw,60px);border-top:1px solid var(--line)}
+.et-svc-i{display:flex;gap:18px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}
+.et-svc-i i{font-style:normal;font-family:var(--mono);font-size:.72rem;color:var(--lime)}
+.et-svc-i b{font-weight:500;font-size:1.08rem;letter-spacing:-.01em}
+@media(max-width:1000px){.et-regions{grid-template-columns:1fr 1fr}}
+@media(max-width:800px){.et-svc{grid-template-columns:1fr}}
+@media(max-width:520px){.et-regions{grid-template-columns:1fr}}

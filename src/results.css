@@ -47,7 +47,7 @@
 /* whole = uncropped previews: the full screenshot always fits inside its frame */
 .rs-shots.whole{grid-template-columns:1fr 1fr}
 .rs-shots.whole .rs-shot{aspect-ratio:2/1}
-.rs-shots.whole .rs-shot.big{aspect-ratio:2.25/1}
+.rs-shots.whole .rs-shot.big{aspect-ratio:auto}
 .rs-shots.whole .rs-shot img{object-fit:contain;object-position:center}
 .rs-shots.whole .rs-shot span{position:static;background:#0b0c09;padding:8px 10px}
 .rs-shots.whole .rs-shot{aspect-ratio:auto;display:flex;flex-direction:column}
